@@ -22,6 +22,8 @@ GameScreenLevel1::GameScreenLevel1() : GameScreen()
 
 	mCamera = new Camera();
 
+	mCubeCore = new RubiksCubeCore();
+
 	//mCamera = mCamera->GetInstance();
 
 	float aspect = (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT;
@@ -51,6 +53,8 @@ void GameScreenLevel1::Render()
 
 	mCamera->Render();
 
+	mCubeCore->Render();
+
 	glBegin(GL_TRIANGLES);
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glVertex3f(2.0f, 2.5f, -1.0f);
@@ -68,6 +72,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	mCurrentTime += deltaTime;
 
 	mCamera->Update(deltaTime, e);
+	mCubeCore->Update(deltaTime, e);
 }
 
 //--------------------------------------------------------------------------------------------------

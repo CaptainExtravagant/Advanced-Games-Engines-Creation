@@ -8,11 +8,10 @@ public:
 	RubiksCubeBlockCenter(int newSide);
 	~RubiksCubeBlockCenter();
 
-	int GetSide();
-
 private:
 	void SetRotation();
 	void SetPosition();
+
 	int activeSide;
 };
 

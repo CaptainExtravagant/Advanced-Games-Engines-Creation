@@ -20,7 +20,7 @@ void RubiksCubeBlockEdge::AssignSides(int side1, int side2)
 
 bool RubiksCubeBlockEdge::CheckForSide(int sideSelection)
 {
-	for (int i = 0; i < activeSides.capacity; i++)
+	for (unsigned int i = 0; i < activeSides.capacity(); i++)
 	{
 		if (activeSides[i] == sideSelection)
 		{

@@ -12,11 +12,6 @@ RubiksCubeBlockCenter::~RubiksCubeBlockCenter()
 
 }
 
-int RubiksCubeBlockCenter::GetSide()
-{
-	return activeSide;
-}
-
 void RubiksCubeBlockCenter::SetRotation()
 {
 	switch (activeSide)

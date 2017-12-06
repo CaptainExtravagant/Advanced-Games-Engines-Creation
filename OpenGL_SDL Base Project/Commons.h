@@ -1,4 +1,5 @@
 #pragma once
+#include <math.h>
 
 enum SCREENS
 {
@@ -98,6 +99,7 @@ struct Vector2D
 	{
 		x = other.x;
 		y = other.y;
+		return *this;
 	}
 };
 
@@ -164,6 +166,21 @@ struct Vector3D
 		return cross;
 	}
 
+	Vector3D RotateAroundAxis(float angle, Vector3D axis)
+	{
+		Vector3D newTransform;
+		float c = cos(angle);
+		float s = sin(angle);
+
+		newTransform = (Vector3D(
+			((c + (1 - c) * pow(axis.x, 2)) + ((1 - c) * axis.x * axis.y - (s * axis.z)) + ((1 - c) * axis.x * axis.z + (s*axis.y))),
+			(((1 - c) * axis.x * axis.y + (s * axis.z)) + (c + (1 - c) * pow(axis.y, 2)) + ((1 - c) * axis.y * axis.z - (s*axis.x))),
+			(((1 - c) * axis.x * axis.z - (s*axis.y)) + ((1 - c) * axis.y * axis.z + (s*axis.x)) + (c + (1 - c) * pow(axis.z, 2)))
+		));
+
+		return newTransform;
+	}
+
 	Vector3D operator* (float scalar)
 	{
 		return Vector3D(x * scalar, y * scalar, z * scalar);
@@ -195,6 +212,8 @@ struct Vector3D
 		x = other.x;
 		y = other.y;
 		z = other.z;
+
+		return *this;
 	}
 };
 

@@ -95,7 +95,7 @@ void Camera::Update(float deltaTime, SDL_Event e)
 
 void Camera::Render()
 {
-	Vector3D lookatPos = position + forward; //Make sure we're always looking at a point infront of the camera
+	Vector3D lookatPos = position + forward; //Make sure we're always looking at a point in front of the camera
 	glLoadIdentity();
 	gluLookAt(position.x, position.y, position.z, lookatPos.x, lookatPos.y, lookatPos.z, up.x, up.y, up.z);
 }

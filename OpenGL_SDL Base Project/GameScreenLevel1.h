@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include "GameScreen.h"
 #include "Camera.h"
+#include "RubiksCubeCore.h"
 
 class GameScreenLevel1 : GameScreen
 {
@@ -21,6 +22,7 @@ private:
 	
 	float mCurrentTime;
 	Camera* mCamera;
+	RubiksCubeCore* mCubeCore;
 };
 
 

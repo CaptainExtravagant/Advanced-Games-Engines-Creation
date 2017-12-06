@@ -16,6 +16,9 @@ public:
 
 	void UpdateSides(GameObject* rotatedSide);
 
+	void Update(float deltaTime, SDL_Event e);
+	void Render();
+
 private:
 
 	void SpawnBlocks();
