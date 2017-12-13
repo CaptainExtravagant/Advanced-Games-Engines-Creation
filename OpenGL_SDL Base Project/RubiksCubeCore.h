@@ -25,6 +25,10 @@ private:
 
 	vector<RubiksCubeBlock*> oBlockList;
 
+	vector<RubiksCubeBlockCenter*> oCenterBlocks;
+	vector<RubiksCubeBlockCorner*> oCornerBlocks;
+	vector<RubiksCubeBlockEdge*> oEdgeBlocks;
+
 	vector<RubiksCubeBlock*> oTopBlocks;
 	vector<RubiksCubeBlock*> oBottomBlocks;
 	vector<RubiksCubeBlock*> oBackBlocks;

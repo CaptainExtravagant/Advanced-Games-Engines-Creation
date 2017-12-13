@@ -21,7 +21,7 @@ void RubiksCubeBlockCorner::AssignSides(int side1, int side2, int side3)
 
 bool RubiksCubeBlockCorner::CheckForSide(int side)
 {
-	for (unsigned int i = 0; i < activeSides.capacity(); i++)
+	for (unsigned int i = 0; i < activeSides.size(); i++)
 	{
 		if (activeSides[i] == side)
 		{

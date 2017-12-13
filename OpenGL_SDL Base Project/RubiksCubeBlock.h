@@ -10,10 +10,10 @@ public:
 	RubiksCubeBlock();
 	~RubiksCubeBlock();
 
-	virtual void Render();
+	void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
 
-	virtual bool CheckForSide(int sideToCheck);
+	bool CheckForSide(int sideToCheck);
 
 
 protected:
@@ -22,6 +22,7 @@ protected:
 	virtual void SetPosition();
 	GameObject* blockCore;
 
+private:
 	int activeSide;
 };
 

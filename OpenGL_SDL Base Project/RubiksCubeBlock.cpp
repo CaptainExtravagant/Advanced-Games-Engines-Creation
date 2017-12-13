@@ -28,9 +28,10 @@ void RubiksCubeBlock::SetPosition()
 void RubiksCubeBlock::Render()
 {
 	glBegin(GL_POLYGON);
-	glutSolidSphere(1.0f, 10, 10);
+	glColor3f(1.0f, 0.0f, 0.0f);
+		glutSolidCube(1.0f);
+		glTranslatef(GetPosition().x, GetPosition().y, GetPosition().z);
 	glEnd();
-
 }
 
 bool RubiksCubeBlock::CheckForSide(int side)

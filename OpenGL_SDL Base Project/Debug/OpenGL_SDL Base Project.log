@@ -1,4 +1,4 @@
-﻿  RubiksCubeCore.cpp
+﻿  RubiksCubeBlockEdge.cpp
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -6,4 +6,21 @@ c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl ba
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(173): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(175): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  RubiksCubeBlockCorner.cpp
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(155): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(173): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(175): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  RubiksCubeBlockCenter.cpp
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(155): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(173): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(175): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   OpenGL_SDL Base Project.vcxproj -> C:\Users\r016339g\Documents\GitHub\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.exe
