@@ -18,6 +18,8 @@ public:
 
 protected:
 	virtual void SetRotation();
+
+	void DrawCube();
 	
 	virtual void SetPosition();
 	GameObject* blockCore;

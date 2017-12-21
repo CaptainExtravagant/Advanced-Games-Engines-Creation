@@ -7,6 +7,8 @@ class RubiksCubeBlockCenter : public RubiksCubeBlock
 public:
 	RubiksCubeBlockCenter(int newSide);
 	~RubiksCubeBlockCenter();
+	
+	bool CheckForSide(int sideSelection);
 
 private:
 	void SetRotation();

@@ -248,3 +248,46 @@ struct Transform {
 	}
 
 };
+
+struct lighting {
+	float ambient[4];
+	float diffuse[4];
+	float specular[4];
+};
+
+struct material {
+	float ambient[4];
+	float diffuse[4];
+	float specular[4];
+	float shininess;
+};
+
+struct TexCoord {
+	float u;
+	float v;
+};
+
+//OBJ Loader type details
+#define MAX_VERTICES 30000
+#define MAX_POLYGONS 30000
+
+//The polygon triangle
+struct Triangle {
+	int a;
+	int b;
+	int c;
+};
+
+//Object type
+typedef struct
+{
+	char name[20];
+	int vertices_qty;
+	int polygons_qty;
+	int normals_qty;
+	Vector3D vertex[MAX_VERTICES];
+	Vector3D normal[MAX_VERTICES];
+	Triangle polygon[MAX_POLYGONS];
+	TexCoord texcoord[MAX_VERTICES];
+	int id_texture;
+} obj_type, *obj_type_ptr;

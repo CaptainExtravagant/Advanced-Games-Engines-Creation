@@ -1,6 +1,6 @@
 #include "RubiksCubeCore.h"
 
-RubiksCubeCore::RubiksCubeCore()
+RubiksCubeCore::RubiksCubeCore() : GameObject(Vector3D(0, 0, 0), "")
 {
 	SpawnBlocks();
 }

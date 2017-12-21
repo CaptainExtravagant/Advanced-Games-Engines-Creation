@@ -5,7 +5,7 @@
 #include <GL\glu.h>
 #include "../gl/glut.h"
 
-RubiksCubeBlock::RubiksCubeBlock()
+RubiksCubeBlock::RubiksCubeBlock() : GameObject(Vector3D(0, 0, 0), "")
 {
 
 }
@@ -27,10 +27,18 @@ void RubiksCubeBlock::SetPosition()
 
 void RubiksCubeBlock::Render()
 {
+	glPushMatrix();
+		glColor3f(1.0f, 0.0f, 0.0f);
+		glutSolidCube(2.0f);
+		glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
+		DrawCube();
+	glPopMatrix();
+}
+
+void RubiksCubeBlock::DrawCube()
+{
 	glBegin(GL_POLYGON);
-	glColor3f(1.0f, 0.0f, 0.0f);
-		glutSolidCube(1.0f);
-		glTranslatef(GetPosition().x, GetPosition().y, GetPosition().z);
+	glutSolidCube(2.0f);
 	glEnd();
 }
 

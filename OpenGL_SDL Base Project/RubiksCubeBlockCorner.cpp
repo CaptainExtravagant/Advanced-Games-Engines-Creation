@@ -2,7 +2,9 @@
 
 RubiksCubeBlockCorner::RubiksCubeBlockCorner(int side1, int side2, int side3)
 {
-	activeSides.push_back(side1), (side2), (side3);
+	activeSides.push_back(side1);
+	activeSides.push_back(side2);
+	activeSides.push_back(side3);
 	SetRotation();
 	SetPosition();
 }
@@ -76,44 +78,33 @@ void RubiksCubeBlockCorner::SetRotation()
 
 void RubiksCubeBlockCorner::SetPosition()
 {
-	if (CheckForSide(1) && CheckForSide(3) && CheckForSide(5))
+	if (CheckForSide(1))
 	{
-		//Top Front Right
-		mTransform.position = Vector3D(10, 10, -10);
+		mTransform.AddPosition(Vector3D(0, 10, 0));
 	}
-	else if (CheckForSide(1) && CheckForSide(3) && CheckForSide(6))
+
+	if (CheckForSide(2))
 	{
-		//Top Front Left
-		mTransform.position = Vector3D(-10, 10, -10);
+		mTransform.AddPosition(Vector3D(0, -10, 0));
 	}
-	else if (CheckForSide(1) && CheckForSide(4) && CheckForSide(5))
+
+	if (CheckForSide(3))
 	{
-		//Top Back Right
-		mTransform.position = Vector3D(10, 10, 10);
+		mTransform.AddPosition(Vector3D(0, 0, 10));
 	}
-	else if (CheckForSide(1) && CheckForSide(4) && CheckForSide(6))
+
+	if (CheckForSide(4))
 	{
-		//Top Back Left
-		mTransform.position = Vector3D(-10, 10, -10);
+		mTransform.AddPosition(Vector3D(0, 0, -10));
 	}
-	else if (CheckForSide(2) && CheckForSide(3) && CheckForSide(5))
+
+	if (CheckForSide(5))
 	{
-		//Bottom Front Right
-		mTransform.position = Vector3D(10, -10, 10);
+		mTransform.AddPosition(Vector3D(10, 0, 0));
 	}
-	else if (CheckForSide(2) && CheckForSide(3) && CheckForSide(6))
+
+	if (CheckForSide(6))
 	{
-		//Bottom Front Left
-		mTransform.position = Vector3D(-10, -10, -10);
-	}
-	else if (CheckForSide(2) && CheckForSide(4) && CheckForSide(5))
-	{
-		//Bottom Back Right
-		mTransform.position = Vector3D(10, -10, 10);
-	}
-	else if (CheckForSide(2) && CheckForSide(4) && CheckForSide(6))
-	{
-		//Bottom Back Left
-		mTransform.rotation = Vector3D(-10, -10, 10);
+		mTransform.AddPosition(Vector3D(-10, 0, 0));
 	}
 }
