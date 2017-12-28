@@ -51,21 +51,21 @@ bool LoadOBJ(const char* path, obj_type_ptr p_object)
 		{
 			Vector3D vertex;
 			fscanf(inFile, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z);
-			p_object->vertex[res - 1] = vertex;
+			p_object->vertex[vertices] = vertex;
 			vertices++;
 		}
 		else if(strcmp(lineHeader, "vt") == 0)
 		{
 			TexCoord uv;
 			fscanf(inFile, "%f %f\n", &uv.u, &uv.v);
-			p_object->texcoord[res - 1] = uv;
+			p_object->texcoord[uvs] = uv;
 			uvs++;
 		}
 		else if (strcmp(lineHeader, "vn") == 0)
 		{
 			Vector3D normal;
 			fscanf(inFile, "%f %f %f\n", &normal.x, &normal.y, &normal.z);
-			p_object->normal[res - 1] = normal;
+			p_object->normal[normals] = normal;
 			normals++;
 		}
 		else if (strcmp(lineHeader, "f") == 0)
@@ -80,9 +80,9 @@ bool LoadOBJ(const char* path, obj_type_ptr p_object)
 				return false;
 			}
 			*/
-			p_object->polygon[res - 1].a = vertexIndex[0];
-			p_object->polygon[res - 1].b = vertexIndex[1];
-			p_object->polygon[res - 1].c = vertexIndex[2];
+			p_object->polygon[polygons].a = vertexIndex[0];
+			p_object->polygon[polygons].b = vertexIndex[1];
+			p_object->polygon[polygons].c = vertexIndex[2];
 
 			polygons++;
 

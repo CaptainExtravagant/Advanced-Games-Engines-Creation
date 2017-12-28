@@ -21,6 +21,38 @@ void RubiksCubeCore::Update(float deltaTime, SDL_Event e)
 	{
 		oBlockList[i]->Update(deltaTime, e);
 	}
+
+	GameObject centerBlock();
+
+	if (e.type == SDL_KEYDOWN)
+	{
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_q:
+			break;
+
+		case SDLK_a:
+			break;
+
+		case SDLK_w:
+			break;
+
+		case SDLK_e:
+			break;
+
+		case SDLK_s:
+			break;
+
+		case SDLK_d:
+			break;
+
+		case SDLK_r:
+			break;
+
+		case SDLK_f:
+			break;
+		}
+	}
 }
 
 void RubiksCubeCore::Render()

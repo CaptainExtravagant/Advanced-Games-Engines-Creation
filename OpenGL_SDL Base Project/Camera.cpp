@@ -5,7 +5,7 @@
 
 static Camera* instance = 0;
 static float moveSpeed = 1.0f;
-static float lookSpeed = 0.1f;
+static float lookSpeed = 0.05f;
 
 Camera::Camera()
 {
@@ -44,51 +44,53 @@ void Camera::Update(float deltaTime, SDL_Event e)
 	up = Vector3D((right.y*forward.z) - (right.z*forward.y),
 		(right.z*forward.x) - (right.x*forward.z),
 		(right.x*forward.y) - (right.y*forward.x));
-
+	
 	//Event Handler
 	if (e.type == SDL_KEYDOWN)
 	{
 		switch (e.key.keysym.sym)
 		{
-		case SDLK_w:
+		case SDLK_UP:
 			//move forwards
 			position += forward * moveSpeed;
 			break;
 
-		case SDLK_s:
+		case SDLK_DOWN:
 			//move backwards
 			position -= forward * moveSpeed;
 			break;
 
-		case SDLK_d:
+		case SDLK_RIGHT:
 			//Strafe right
 			position += right * moveSpeed;
 			break;
 
-		case SDLK_a:
+		case SDLK_LEFT:
 			//Strafe left
 			position -= right * moveSpeed;
 			break;
+		}
+	}
 
-		case SDLK_UP:
-			//Look up
-			pitch += lookSpeed;
-			break;
-
-		case SDLK_DOWN:
-			//Look down
-			pitch -= lookSpeed;
-			break;
-
-		case SDLK_LEFT:
-			//Look left
+	//Camera movement with mouse input
+	if (e.type == SDL_MOUSEMOTION)
+	{
+		if (e.motion.xrel < 0)
+		{
 			yaw += lookSpeed;
-			break;
-
-		case SDLK_RIGHT:
-			//Look right
+		}
+		else if (e.motion.xrel > 0)
+		{
 			yaw -= lookSpeed;
-			break;
+		}
+
+		if (e.motion.yrel < 0)
+		{
+			pitch += lookSpeed;
+		}
+		else if (e.motion.yrel > 0)
+		{
+			pitch -= lookSpeed;
 		}
 	}
 }
