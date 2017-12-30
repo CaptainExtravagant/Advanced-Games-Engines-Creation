@@ -59,7 +59,7 @@ void GameScreenLevel1::Render()
 	SetMaterial();
 
 	mCamera->Render();
-	mCola->Render();
+	//mCola->Render();
 	mCubeCore->Render();
 
 	/*
@@ -81,7 +81,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	mCurrentTime += deltaTime;
 
 	mCamera->Update(deltaTime, e);
-	mCola->Update(deltaTime);
+	mCola->Update(deltaTime, e);
 	mCubeCore->Update(deltaTime, e);
 }
 

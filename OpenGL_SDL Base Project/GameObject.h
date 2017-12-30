@@ -3,6 +3,7 @@
 
 #include "Commons.h"
 #include <vector>
+#include <SDL.h>
 
 using namespace std;
 
@@ -24,9 +25,8 @@ public:
 	Vector3D GetScale();
 
 	virtual void Render();
-	virtual void Update(float deltaTime);
+	virtual void Update(float deltaTime, SDL_Event e);
 
-protected:
 	Transform mTransform;
 
 private:

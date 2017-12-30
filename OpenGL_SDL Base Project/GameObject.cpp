@@ -8,7 +8,7 @@ GameObject::GameObject(Vector3D startPosition, string modelFileName)
 	mTransform = Transform(startPosition, Vector3D(0, 0, 0), Vector3D(1, 1, 1));
 
 	//Load mesh
-	strcpy(fileName, modelFileName.c_str());
+	strcpy_s(fileName, modelFileName.c_str());
 	LoadModel();
 }
 
@@ -43,12 +43,30 @@ Vector3D GameObject::GetPosition()
 	return mTransform.position;
 }
 
+Vector3D GameObject::GetRotation()
+{
+	return mTransform.rotation;
+}
+
+Vector3D GameObject::GetScale()
+{
+	return mTransform.scale;
+}
+
 void GameObject::Render()
 {
 	glPushMatrix();
 
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
+
+	glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
+	glRotatef(mTransform.rotation.y, 0.0f, 1.0f, 0.0f);
+	glRotatef(mTransform.rotation.z, 0.0f, 0.0f, 1.0f);
+
+
+
+	glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
 
 	//Bind Texture
 
@@ -99,7 +117,37 @@ void GameObject::Render()
 	glPopMatrix();
 }
 
-void GameObject::Update(float deltaTime)
+void GameObject::Update(float deltaTime, SDL_Event e)
 {
+	//Reset rotation if less than 0
+	if (mTransform.rotation.x < 0)
+	{
+		mTransform.rotation.x += 360;
+	}
 
+	if (mTransform.rotation.y < 0)
+	{
+		mTransform.rotation.y += 360;
+	}
+
+	if (mTransform.rotation.z < 0)
+	{
+		mTransform.rotation.z += 360;
+	}
+
+	//Reset rotation if more than 360
+	if (mTransform.rotation.x > 360)
+	{
+		mTransform.rotation.x -= 360;
+	}
+
+	if (mTransform.rotation.y > 360)
+	{
+		mTransform.rotation.y -= 360;
+	}
+
+	if (mTransform.rotation.z > 360)
+	{
+		mTransform.rotation.z -= 360;
+	}
 }

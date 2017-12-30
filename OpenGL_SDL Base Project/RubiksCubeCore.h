@@ -13,17 +13,23 @@ public:
 	~RubiksCubeCore();
 
 	void Rotate(Vector3D rotateDirection);
-
-	void UpdateSides(GameObject* rotatedSide);
-
+	
 	void Update(float deltaTime, SDL_Event e);
 	void Render();
 
 private:
 
 	void SpawnBlocks();
+	void RotateSide();
+
+	bool rotating;
+	int rotatingSide;
+	bool positive;
+	RubiksCubeBlockCenter* activeCenter;
 
 	vector<RubiksCubeBlock*> oBlockList;
+
+	vector<RubiksCubeBlock*> oRotatingBlocks;
 
 	vector<RubiksCubeBlockCenter*> oCenterBlocks;
 	vector<RubiksCubeBlockCorner*> oCornerBlocks;
