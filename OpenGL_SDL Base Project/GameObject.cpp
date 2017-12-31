@@ -60,9 +60,9 @@ void GameObject::Render()
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
 
-	glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
 	glRotatef(mTransform.rotation.y, 0.0f, 1.0f, 0.0f);
 	glRotatef(mTransform.rotation.z, 0.0f, 0.0f, 1.0f);
+	glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
 
 
 
@@ -119,6 +119,7 @@ void GameObject::Render()
 
 void GameObject::Update(float deltaTime, SDL_Event e)
 {
+	/*
 	//Reset rotation if less than 0
 	if (mTransform.rotation.x < 0)
 	{
@@ -150,4 +151,5 @@ void GameObject::Update(float deltaTime, SDL_Event e)
 	{
 		mTransform.rotation.z -= 360;
 	}
+	*/
 }

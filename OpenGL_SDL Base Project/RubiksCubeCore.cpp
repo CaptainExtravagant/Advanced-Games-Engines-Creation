@@ -58,13 +58,14 @@ void RubiksCubeCore::Update(float deltaTime, SDL_Event e)
 
 			case SDLK_s:
 				rotatingSide = 2;
-				positive = true;
+				positive = false;
 				rotating = true;
 				break;
 
 			case SDLK_d:
 				rotatingSide = 2;
-				positive = false;
+				positive = true
+					;
 				rotating = true;
 				break;
 
@@ -113,13 +114,15 @@ void RubiksCubeCore::Update(float deltaTime, SDL_Event e)
 		
 		if (activeCenter != NULL)
 		{
+			/*
 			if (activeCenter->GetRotation().x == 0 || activeCenter->GetRotation().x == 90 || activeCenter->GetRotation().x == 180 || activeCenter->GetRotation().x == 270 || activeCenter->GetRotation().x == 360)
 				//activeCenter->GetRotation().y == 0 || activeCenter->GetRotation().y == 90 || activeCenter->GetRotation().y == 180 || activeCenter->GetRotation().y == 270 || activeCenter->GetRotation().y == 360 ||
 				//activeCenter->GetRotation().z == 0 || activeCenter->GetRotation().z == 90 || activeCenter->GetRotation().z == 180 || activeCenter->GetRotation().z == 270 || activeCenter->GetRotation().z == 360)
 			{
+			*/
 				rotating = false;
 				activeCenter = NULL;
-			}
+			//}
 		}
 		else
 		{
@@ -214,9 +217,10 @@ void RubiksCubeCore::RotateSide()
 				else
 				{
 					//Rotate every other block around the center position
-					oBottomBlocks[i]->mTransform.position = Vector3D((cos(-1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(-1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.x),
+					oBottomBlocks[i]->mTransform.position = Vector3D(
+						(cos(1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.x),
 						oBottomBlocks[i]->mTransform.position.y,
-						(sin(-1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(-1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.z));
+						(sin(1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.z));
 
 					oBottomBlocks[i]->mTransform.rotation.y += 4.0f;
 				}
@@ -232,9 +236,10 @@ void RubiksCubeCore::RotateSide()
 				}
 				else
 				{
-					oBottomBlocks[i]->mTransform.position = Vector3D((cos(1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.x),
+					oBottomBlocks[i]->mTransform.position = Vector3D(
+						(cos(-1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(-1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.x),
 						oBottomBlocks[i]->mTransform.position.y,
-						(sin(1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.z));
+						(sin(-1.5f) * (oBottomBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(-1.5f) * (oBottomBlocks[i]->mTransform.position.z - activeCenter->mTransform.position.z) + activeCenter->mTransform.position.z));
 
 					oBottomBlocks[i]->mTransform.rotation.y -= 4.0f;
 				}
@@ -263,16 +268,17 @@ void RubiksCubeCore::RotateSide()
 				//Is the current block the activeCenter?
 				if (oFrontBlocks[i] == activeCenter)
 				{
-					activeCenter->mTransform.rotation.y += 4.0f;
+					activeCenter->mTransform.rotation.z += 4.0f;
 				}
 				else
 				{
 					//Rotate every other block around the center position
-					oFrontBlocks[i]->mTransform.position = Vector3D((cos(-1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(-1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
+					oFrontBlocks[i]->mTransform.position = Vector3D(
+						(cos(-1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(-1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
 						(sin(-1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(-1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.y),
 						oFrontBlocks[i]->mTransform.position.z);
 
-					oFrontBlocks[i]->mTransform.rotation.y += 4.0f;
+					oFrontBlocks[i]->mTransform.rotation.z += 4.0f;
 				}
 			}
 		}
@@ -282,15 +288,16 @@ void RubiksCubeCore::RotateSide()
 			{
 				if (oFrontBlocks[i] == activeCenter)
 				{
-					activeCenter->mTransform.rotation.y -= 4.0f;
+					activeCenter->mTransform.rotation.z -= 4.0f;
 				}
 				else
 				{
-					oFrontBlocks[i]->mTransform.position = Vector3D((cos(1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
+					oFrontBlocks[i]->mTransform.position = Vector3D(
+						(cos(1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
 						(sin(1.5f) * (oFrontBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(1.5f) * (oFrontBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.y),
 						oFrontBlocks[i]->mTransform.position.z);
 
-					oFrontBlocks[i]->mTransform.rotation.y -= 4.0f;
+					oFrontBlocks[i]->mTransform.rotation.z -= 4.0f;
 				}
 			}
 		}
@@ -322,7 +329,8 @@ void RubiksCubeCore::RotateSide()
 				else
 				{
 					//Rotate every other block around the center position
-					oBackBlocks[i]->mTransform.position = Vector3D((cos(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
+					oBackBlocks[i]->mTransform.position = Vector3D(
+						(cos(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
 						(sin(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.y),
 						oBackBlocks[i]->mTransform.position.z);
 
@@ -340,7 +348,8 @@ void RubiksCubeCore::RotateSide()
 				}
 				else
 				{
-					oBackBlocks[i]->mTransform.position = Vector3D((cos(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
+					oBackBlocks[i]->mTransform.position = Vector3D(
+						(cos(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) - sin(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.x),
 						(sin(1.5f) * (oBackBlocks[i]->mTransform.position.x - activeCenter->mTransform.position.x) + cos(1.5f) * (oBackBlocks[i]->mTransform.position.y - activeCenter->mTransform.position.y) + activeCenter->mTransform.position.y),
 						oBackBlocks[i]->mTransform.position.z);
 

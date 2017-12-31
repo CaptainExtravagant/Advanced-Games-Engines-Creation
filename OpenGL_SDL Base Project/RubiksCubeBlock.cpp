@@ -32,9 +32,9 @@ void RubiksCubeBlock::Render()
 
 		glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
 
-		glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
 		glRotatef(mTransform.rotation.y, 0.0f, 1.0f, 0.0f);
 		glRotatef(mTransform.rotation.z, 0.0f, 0.0f, 1.0f);
+		glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
 		
 		glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
 
