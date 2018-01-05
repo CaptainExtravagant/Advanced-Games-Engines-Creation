@@ -73,28 +73,12 @@ bool LoadOBJ(const char* path, obj_type_ptr p_object)
 			string vertex1, vertex2, vertex3;
 			unsigned int vertexIndex[3], uvIndex[3], normalIndex[3];
 			int matches = fscanf(inFile, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2]);
-			/*
-			if (matches != 9)
-			{
-				printf("File can't be read by simple parser. Try exporting with other options\n");
-				return false;
-			}
-			*/
+						
 			p_object->polygon[polygons].a = vertexIndex[0];
 			p_object->polygon[polygons].b = vertexIndex[1];
 			p_object->polygon[polygons].c = vertexIndex[2];
 
 			polygons++;
-
-			/*
-			uvIndices.push_back(uvIndex[0]);
-			uvIndices.push_back(uvIndex[1]);
-			uvIndices.push_back(uvIndex[2]);
-
-			normalIndices.push_back(normalIndex[0]);
-			normalIndices.push_back(normalIndex[1]);
-			normalIndices.push_back(normalIndex[2]);
-			*/
 		}
 	}
 

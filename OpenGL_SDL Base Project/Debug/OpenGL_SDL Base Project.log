@@ -1,10 +1,23 @@
 ﻿  RubiksCubeCore.cpp
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(155): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(173): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\actual\opengl_sdl base project\opengl_sdl base project\commons.h(175): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Actual\OpenGL_SDL Base Project\Debug\OpenGL_SDL Base Project.exe
-  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Actual\OpenGL_SDL Base Project\Debug\OpenGL_SDL Base Project.pdb (Partial PDB)
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(155): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(172): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(173): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(178): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(177): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(176): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(280): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(302): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(303): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(306): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(307): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(310): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(311): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(321): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(326): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(331): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\hayley\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(348): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  OpenGL_SDL Base Project.vcxproj -> C:\Users\Hayley\Documents\GitHub\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.exe

@@ -20,7 +20,7 @@ GameScreenLevel1::GameScreenLevel1() : GameScreen()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	mCola = new GameObject(Vector3D(0, 0, 0), "Can.obj");
+	//mCola = new GameObject(Vector3D(0, 0, 0), "Can.obj");
 
 	mCamera = new Camera();
 
@@ -57,21 +57,22 @@ void GameScreenLevel1::Render()
 
 	SetLight();
 	SetMaterial();
+		
+	/*
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex3f(2.0f, 0.0f, 0.0f);
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex3f(0.0f, 2.0f, 0.0f);
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glVertex3f(0.0f, 0.0f, 2.0f);
+	glEnd();
+	*/
 
 	mCamera->Render();
 	//mCola->Render();
 	mCubeCore->Render();
 
-	/*
-	glBegin(GL_TRIANGLES);
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glVertex3f(2.0f, 0.0f, 0.0f);
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(0.0f, 2.0f, 0.0f);
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(0.0f, 0.0f, 2.0f);
-	glEnd();
-	*/
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -81,7 +82,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	mCurrentTime += deltaTime;
 
 	mCamera->Update(deltaTime, e);
-	mCola->Update(deltaTime, e);
+	//mCola->Update(deltaTime, e);
 	mCubeCore->Update(deltaTime, e);
 }
 

@@ -25,9 +25,11 @@ public:
 	Vector3D GetScale();
 
 	virtual void Render();
+	void RenderModel();
 	virtual void Update(float deltaTime, SDL_Event e);
-
+	
 	Transform mTransform;
+	Quaternion mQuatRotation;
 
 private:
 	char fileName[20];

@@ -26,6 +26,14 @@ protected:
 
 private:
 	int activeSide;
+
+	Vector3D xAxis = Vector3D(1.0f, 0.0f, 0.0f);
+	Vector3D yAxis = Vector3D(0.0f, 1.0f, 0.0f);
+	Vector3D zAxis = Vector3D(0.0f, 0.0f, 1.0f);
+
+	float xAngle;
+	float yAngle;
+	float zAngle;
 };
 
 

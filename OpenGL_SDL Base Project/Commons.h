@@ -249,6 +249,137 @@ struct Transform {
 
 };
 
+struct Quaternion
+{
+	float x;
+	float y;
+	float z;
+	float w;
+
+	Quaternion()
+	{
+		//Unit Quaternion value. No rotation
+		x = 0.0f;
+		y = 0.0f;
+		z = 0.0f;
+		w = 1.0f;
+	}
+
+	Quaternion(float initialX, float initialY, float initialZ, float initialW)
+	{
+		x = initialX;
+		y = initialY;
+		z = initialZ;
+		w = initialW;
+	}
+
+	float Magnitude()
+	{
+		float magnitude;
+
+		magnitude = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(w, 2));
+
+		return magnitude;
+	}
+
+	Quaternion Normalise()
+	{
+		float magnitude = Magnitude();
+
+		Quaternion normalised(x / magnitude, y /magnitude, z / magnitude, w / magnitude);
+
+		return normalised;
+	}
+
+	Quaternion Inverse()
+	{
+		return Quaternion(-x, -y, -z, w);
+	}
+
+	void FromEuler(float pitch, float yaw, float roll)
+	{
+		//X
+		float cx = cos(pitch / 2.0f);
+		float sx = sin(pitch / 2.0f);
+
+		//Y
+		float cy = cos(yaw / 2.0f);
+		float sy = sin(yaw / 2.0f);
+		
+		//Z
+		float cz = cos(roll / 2.0f);
+		float sz = sin(roll / 2.0f);
+
+		w = cx * cy * cz + sx * sy * sz;
+		x = cx * sy * cz - sx * cy * sz;
+		y = cx * cy * sz + sx * sy * sz;
+		z = sx * cy * cz - cx * sy * sz;
+	}
+
+	void GetAxisAngle(Vector3D* v, float* angle)
+	{
+		float scale = sqrt(x * x + y * y + z * z);
+		v->x = x / scale;
+		v->y = y / scale;
+		v->z = z / scale;
+
+		*angle = acos(w) * 2.0f;
+	}
+
+	float Scale()
+	{
+		return sqrt(x * x + y * y + z * z);
+	}
+
+	Vector3D ToEuler()
+	{
+		Vector3D euler;
+
+		//roll (x axis)
+		float sinr = 2.0f * (w * x + y * z);
+		float cosr = 1.0f - 2.0f * (x * x + y * y);
+		euler.x = atan2f(sinr, cosr);
+
+		//pitch (y axis)
+		float sinp = 2.0f * (w * y - z * x);
+		if (fabs(sinp) >= 1)
+			euler.y = copysign(3.14 / 2, sinp); //use 90 degrees if out of range
+		else
+			euler.y = asin(sinp);
+
+		//yaw (z axis)
+		float siny = 2.0f * (w * z + x * y);
+		float cosy = 1.0f - 2.0f * (y * y + z * z);
+		euler.z = atan2f(siny, cosy);
+
+		return euler;
+	}
+
+	Quaternion operator* (Quaternion q2)
+	{
+		Quaternion q3(w * q2.x + x * q2.w + y * q2.z - z * q2.y,
+			w * q2.y + y * q2.w + z * q2.x - x * q2.z,
+			w * q2.z + z * q2.w + x * q2.y - y * q2.x,
+			w * q2.w - x * q2.x - y * q2.y - z * q2.z);
+
+		return q3;
+	}
+
+	Vector3D operator* (Vector3D v)
+	{
+		Vector3D vn(v);
+		vn.Normalise();
+
+		Quaternion vecQuat, resQuat;
+
+		vecQuat.x = vn.x; vecQuat.y = vn.y; vecQuat.z = vn.z; vecQuat.w = 0.0f;
+		resQuat = vecQuat * Inverse(); resQuat = *this * resQuat;
+
+		return(Vector3D(resQuat.x, resQuat.y, resQuat.z));
+
+	}
+};
+
 struct lighting {
 	float ambient[4];
 	float diffuse[4];

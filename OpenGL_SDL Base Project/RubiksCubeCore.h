@@ -26,6 +26,7 @@ private:
 	int rotatingSide;
 	bool positive;
 	RubiksCubeBlockCenter* activeCenter;
+	int rotations;
 
 	vector<RubiksCubeBlock*> oBlockList;
 

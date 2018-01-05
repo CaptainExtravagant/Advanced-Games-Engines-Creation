@@ -5,7 +5,7 @@
 #include <GL\glu.h>
 #include "../gl/glut.h"
 
-RubiksCubeBlock::RubiksCubeBlock() : GameObject(Vector3D(0, 0, 0), "")
+RubiksCubeBlock::RubiksCubeBlock() : GameObject(Vector3D(0, 0, 0), "Block.obj")
 {
 
 }
@@ -35,10 +35,18 @@ void RubiksCubeBlock::Render()
 		glRotatef(mTransform.rotation.y, 0.0f, 1.0f, 0.0f);
 		glRotatef(mTransform.rotation.z, 0.0f, 0.0f, 1.0f);
 		glRotatef(mTransform.rotation.x, 1.0f, 0.0f, 0.0f);
+
+		//glRotatef(yAngle, yAxis.x, yAxis.y, yAxis.z);
+		//glRotatef(zAngle, zAxis.x, zAxis.y, zAxis.z);
+		//glRotatef(xAngle, xAxis.x, xAxis.y, xAxis.z);
+			
+		//glRotatef(mQuatRotation.w, mQuatRotation.x, mQuatRotation.y, mQuatRotation.z);
 		
 		glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
 
-		DrawCube();
+		RenderModel();
+		//DrawCube();
+
 	glPopMatrix();
 }
 
@@ -59,5 +67,43 @@ bool RubiksCubeBlock::CheckForSide(int side)
 
 void RubiksCubeBlock::Update(float deltaTime, SDL_Event e)
 {
+	/*
+	//Reset rotation if less than 0
+	if (mTransform.rotation.x < 0)
+	{
+		mTransform.rotation.x += 360;
+	}
+
+	if (mTransform.rotation.y < 0)
+	{
+		mTransform.rotation.y += 360;
+	}
+
+	if (mTransform.rotation.z < 0)
+	{
+		mTransform.rotation.z += 360;
+	}
+
+	//Reset rotation if more than 360
+	if (mTransform.rotation.x > 360)
+	{
+		mTransform.rotation.x -= 360;
+	}
+
+	if (mTransform.rotation.y > 360)
+	{
+		mTransform.rotation.y -= 360;
+	}
+
+	if (mTransform.rotation.z > 360)
+	{
+		mTransform.rotation.z -= 360;
+	}*/
+
+	mQuatRotation.FromEuler(mTransform.rotation.x, mTransform.rotation.y, mTransform.rotation.z);
+
+	mQuatRotation.GetAxisAngle(&xAxis, &xAngle);
+	mQuatRotation.GetAxisAngle(&yAxis, &yAngle);
+	mQuatRotation.GetAxisAngle(&zAxis, &zAngle);
 	
 }
