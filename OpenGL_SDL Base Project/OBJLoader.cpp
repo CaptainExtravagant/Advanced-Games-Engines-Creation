@@ -13,7 +13,7 @@ OBJLoader::~OBJLoader()
 
 }
 
-long FileLength(int f)
+long OBJLoader::FileLength(int f)
 {
 	struct stat buf;
 
@@ -22,7 +22,7 @@ long FileLength(int f)
 	return(buf.st_size);
 }
 
-bool LoadOBJ(const char* path, obj_type_ptr p_object)
+bool OBJLoader::LoadOBJ(const char* path, obj_type_ptr p_object)
 {
 
 	int vertices = 0;

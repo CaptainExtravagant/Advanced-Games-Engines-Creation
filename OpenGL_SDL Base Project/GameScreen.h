@@ -2,6 +2,9 @@
 #define _GAMESCREEN_H
 
 #include <SDL.h>
+#include <string>
+
+using namespace std;
 
 class GameScreen
 {
@@ -13,7 +16,6 @@ public:
 	virtual void Update(float deltaTime, SDL_Event e);
 
 protected:
-
 };
 
 

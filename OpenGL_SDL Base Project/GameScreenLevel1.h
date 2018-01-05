@@ -5,6 +5,7 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include "RubiksCubeCore.h"
+#include <string>
 
 class GameScreenLevel1 : GameScreen
 {
@@ -19,6 +20,10 @@ public:
 
 //--------------------------------------------------------------------------------------------------
 private:
+
+	void OutputLine(float x, float y, string text);
+
+	void RenderHUDText();
 	
 	float mCurrentTime;
 	Camera* mCamera;
