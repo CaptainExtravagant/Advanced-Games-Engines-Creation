@@ -13,7 +13,7 @@ OBJLoader::~OBJLoader()
 
 }
 
-long OBJLoader::FileLength(int f)
+long FileLength(int f)
 {
 	struct stat buf;
 
@@ -22,7 +22,7 @@ long OBJLoader::FileLength(int f)
 	return(buf.st_size);
 }
 
-bool OBJLoader::LoadOBJ(const char* path, obj_type_ptr p_object)
+bool LoadOBJ(const char* path, obj_type_ptr p_object)
 {
 
 	int vertices = 0;
@@ -77,6 +77,14 @@ bool OBJLoader::LoadOBJ(const char* path, obj_type_ptr p_object)
 			p_object->polygon[polygons].a = vertexIndex[0];
 			p_object->polygon[polygons].b = vertexIndex[1];
 			p_object->polygon[polygons].c = vertexIndex[2];
+
+			p_object->uv[polygons].a = uvIndex[0];
+			p_object->uv[polygons].b = uvIndex[1];
+			p_object->uv[polygons].c = uvIndex[2];
+
+			p_object->normals[polygons].a = normalIndex[0];
+			p_object->normals[polygons].b = normalIndex[1];
+			p_object->normals[polygons].c = normalIndex[2];
 
 			polygons++;
 		}

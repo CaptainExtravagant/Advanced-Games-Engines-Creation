@@ -70,6 +70,7 @@ void GameObject::Render()
 	glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
 
 	//Bind Texture
+	glBindTexture(GL_TEXTURE_2D, 1);
 
 	RenderModel();
 		
@@ -78,45 +79,47 @@ void GameObject::Render()
 
 void GameObject::RenderModel()
 {
-	glBegin(GL_TRIANGLES);
 
+	glBegin(GL_TRIANGLES);
 	for (int l_index = 0; l_index < object.polygons_qty; l_index++)
 	{
+
 		//First vertex
-		//glTexCoord2f(object.texcoord[object.polygon[l_index].a].u,
-		//object.texcoord[object.polygon[l_index].a].v);
+		glTexCoord2f(object.texcoord[object.uv[l_index].a - 1].u,
+			object.texcoord[object.uv[l_index].a - 1].v);
 
-		glNormal3f(object.normal[object.polygon[l_index].a].x,
-		object.normal[object.polygon[l_index].a].y,
-		object.normal[object.polygon[l_index].a].z);
+		glNormal3f(object.normal[object.normals[l_index].a - 1].x,
+			object.normal[object.normals[l_index].a - 1].y,
+			object.normal[object.normals[l_index].a - 1].z);
 
-		glVertex3f(object.vertex[object.polygon[l_index].a].x,
-			object.vertex[object.polygon[l_index].a].y,
-			object.vertex[object.polygon[l_index].a].z);
+		glVertex3f(object.vertex[object.polygon[l_index].a - 1].x,
+			object.vertex[object.polygon[l_index].a - 1].y,
+			object.vertex[object.polygon[l_index].a - 1].z);
 
 		//Second vertex
-		//glTexCoord2f(object.texcoord[object.polygon[l_index].b].u,
-		//object.texcoord[object.polygon[l_index].b].v);
-		
-		glNormal3f(object.normal[object.polygon[l_index].b].x,
-		object.normal[object.polygon[l_index].b].y,
-		object.normal[object.polygon[l_index].b].z);
-		
-		glVertex3f(object.vertex[object.polygon[l_index].b].x,
-			object.vertex[object.polygon[l_index].b].y,
-			object.vertex[object.polygon[l_index].b].z);
+		glTexCoord2f(object.texcoord[object.uv[l_index].b - 1].u,
+			object.texcoord[object.uv[l_index].b - 1].v);
+
+		glNormal3f(object.normal[object.normals[l_index].b - 1].x,
+			object.normal[object.normals[l_index].b - 1].y,
+			object.normal[object.normals[l_index].b - 1].z);
+
+		glVertex3f(object.vertex[object.polygon[l_index].b - 1].x,
+			object.vertex[object.polygon[l_index].b - 1].y,
+			object.vertex[object.polygon[l_index].b - 1].z);
 
 		//Third vertex
-		//glTexCoord2f(object.texcoord[object.polygon[l_index].c].u,
-		//object.texcoord[object.polygon[l_index].c].v);
-		
-		glNormal3f(object.normal[object.polygon[l_index].c].x,
-		object.normal[object.polygon[l_index].c].y,
-		object.normal[object.polygon[l_index].c].z);
-		
-		glVertex3f(object.vertex[object.polygon[l_index].c].x,
-			object.vertex[object.polygon[l_index].c].y,
-			object.vertex[object.polygon[l_index].c].z);
+		glTexCoord2f(object.texcoord[object.uv[l_index].c - 1].u,
+			object.texcoord[object.uv[l_index].c - 1].v);
+
+		glNormal3f(object.normal[object.normals[l_index].c - 1].x,
+			object.normal[object.normals[l_index].c - 1].y,
+			object.normal[object.normals[l_index].c - 1].z);
+
+		glVertex3f(object.vertex[object.polygon[l_index].c - 1].x,
+			object.vertex[object.polygon[l_index].c - 1].y,
+			object.vertex[object.polygon[l_index].c - 1].z);
+
 	}
 
 	glEnd();

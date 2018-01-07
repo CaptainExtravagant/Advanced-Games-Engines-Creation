@@ -27,6 +27,9 @@ void RubiksCubeBlock::SetPosition()
 
 void RubiksCubeBlock::Render()
 {
+	GameObject::Render();
+
+	/*
 	glPushMatrix();
 		glColor3f(1.0f, 0.0f, 0.0f);
 
@@ -43,11 +46,12 @@ void RubiksCubeBlock::Render()
 		//glRotatef(mQuatRotation.w, mQuatRotation.x, mQuatRotation.y, mQuatRotation.z);
 		
 		glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
-
+		
 		RenderModel();
 		//DrawCube();
 
 	glPopMatrix();
+	*/
 }
 
 void RubiksCubeBlock::DrawCube()

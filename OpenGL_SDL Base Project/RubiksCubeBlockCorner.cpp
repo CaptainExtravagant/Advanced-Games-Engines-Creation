@@ -5,7 +5,7 @@ RubiksCubeBlockCorner::RubiksCubeBlockCorner(int side1, int side2, int side3)
 	activeSides.push_back(side1);
 	activeSides.push_back(side2);
 	activeSides.push_back(side3);
-	SetRotation();
+	//SetRotation();
 	SetPosition();
 }
 
@@ -80,31 +80,31 @@ void RubiksCubeBlockCorner::SetPosition()
 {
 	if (CheckForSide(1))
 	{
-		mTransform.AddPosition(Vector3D(0, 10, 0));
+		mTransform.AddPosition(Vector3D(0, 4, 0));
 	}
 
 	if (CheckForSide(2))
 	{
-		mTransform.AddPosition(Vector3D(0, -10, 0));
+		mTransform.AddPosition(Vector3D(0, -4, 0));
 	}
 
 	if (CheckForSide(3))
 	{
-		mTransform.AddPosition(Vector3D(0, 0, 10));
+		mTransform.AddPosition(Vector3D(0, 0, 4));
 	}
 
 	if (CheckForSide(4))
 	{
-		mTransform.AddPosition(Vector3D(0, 0, -10));
+		mTransform.AddPosition(Vector3D(0, 0, -4));
 	}
 
 	if (CheckForSide(5))
 	{
-		mTransform.AddPosition(Vector3D(10, 0, 0));
+		mTransform.AddPosition(Vector3D(4, 0, 0));
 	}
 
 	if (CheckForSide(6))
 	{
-		mTransform.AddPosition(Vector3D(-10, 0, 0));
+		mTransform.AddPosition(Vector3D(-4, 0, 0));
 	}
 }

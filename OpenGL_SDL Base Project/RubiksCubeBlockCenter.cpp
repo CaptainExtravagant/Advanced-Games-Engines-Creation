@@ -3,7 +3,7 @@
 RubiksCubeBlockCenter::RubiksCubeBlockCenter(int newSide)
 {
 	activeSide = newSide;
-	SetRotation();
+	//SetRotation();
 	SetPosition();
 }
 
@@ -49,31 +49,31 @@ void RubiksCubeBlockCenter::SetPosition()
 {
 	if (CheckForSide(1))
 	{
-		mTransform.AddPosition(Vector3D(0, 10, 0));
+		mTransform.AddPosition(Vector3D(0, 4, 0));
 	}
 
 	if (CheckForSide(2))
 	{
-		mTransform.AddPosition(Vector3D(0, -10, 0));
+		mTransform.AddPosition(Vector3D(0, -4, 0));
 	}
 
 	if (CheckForSide(3))
 	{
-		mTransform.AddPosition(Vector3D(0, 0, 10));
+		mTransform.AddPosition(Vector3D(0, 0, 4));
 	}
 
 	if (CheckForSide(4))
 	{
-		mTransform.AddPosition(Vector3D(0, 0, -10));
+		mTransform.AddPosition(Vector3D(0, 0, -4));
 	}
 
 	if (CheckForSide(5))
 	{
-		mTransform.AddPosition(Vector3D(10, 0, 0));
+		mTransform.AddPosition(Vector3D(4, 0, 0));
 	}
 
 	if (CheckForSide(6))
 	{
-		mTransform.AddPosition(Vector3D(-10, 0, 0));
+		mTransform.AddPosition(Vector3D(-4, 0, 0));
 	}
 }

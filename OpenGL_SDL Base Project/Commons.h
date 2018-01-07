@@ -419,6 +419,8 @@ typedef struct
 	Vector3D vertex[MAX_VERTICES];
 	Vector3D normal[MAX_VERTICES];
 	Triangle polygon[MAX_POLYGONS];
+	Triangle uv[MAX_POLYGONS];
+	Triangle normals[MAX_POLYGONS];
 	TexCoord texcoord[MAX_VERTICES];
 	int id_texture;
 } obj_type, *obj_type_ptr;

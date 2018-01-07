@@ -5,6 +5,7 @@
 #include <GL\glu.h>
 #include "../gl/glut.h"
 #include "Constants.h"
+#include "Texture2D.h"
 
 using namespace::std;
 
@@ -40,6 +41,17 @@ GameScreenLevel1::GameScreenLevel1() : GameScreen()
 	//Enable lighting
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
+
+	glEnable(GL_TEXTURE_2D);
+
+	Texture2D* texture = new Texture2D();
+	texture->Load("BlockUV.raw", 1024, 1024);
+
+	glBindTexture(GL_TEXTURE_2D, texture->GetID());
+
+	//Set parameters to render correctly
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -138,7 +150,7 @@ void GameScreenLevel1::SetLight()
 	};
 	//Position of the light in homogeneous coordindates (x, y, z, w)
 	//w should be 0 for directional lights, 1 for spotlights
-	float light_pos[] = { 1.0f, 1.0f, 1.0f, 0.0f };
+	float light_pos[] = { 10.0f, 10.0f, 1.0f, 0.0f };
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, light.ambient);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, light.diffuse);
@@ -149,8 +161,8 @@ void GameScreenLevel1::SetLight()
 void GameScreenLevel1::SetMaterial()
 {
 	material material = {
-		{0.80f, 0.05f, 0.05f, 1.0f},
-		{0.80f, 0.05f, 0.05f, 1.0f},
+		{0.95f, 0.95f, 0.95f, 1.0f},
+		{0.95f, 0.95f, 0.95f, 1.0f},
 		{1.0f, 1.0f, 1.0f, 1.0f},
 		100.0f
 	};

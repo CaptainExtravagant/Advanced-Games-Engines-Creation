@@ -14,11 +14,6 @@ class OBJLoader {
 public:
 	OBJLoader();
 	~OBJLoader();
-
-private:
-	long FileLength(int f);
-
-	bool LoadOBJ(const char* path, obj_type_ptr p_object);
 };
 
 #endif
