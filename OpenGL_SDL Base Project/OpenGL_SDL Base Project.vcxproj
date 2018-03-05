@@ -81,11 +81,6 @@
     <ClInclude Include="GameScreenLevel1.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="OBJLoader.h" />
-    <ClInclude Include="RubiksCubeBlock.h" />
-    <ClInclude Include="RubiksCubeBlockCenter.h" />
-    <ClInclude Include="RubiksCubeBlockCorner.h" />
-    <ClInclude Include="RubiksCubeBlockEdge.h" />
-    <ClInclude Include="RubiksCubeCore.h" />
     <ClInclude Include="Text2D.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
@@ -96,11 +91,6 @@
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
-    <ClCompile Include="RubiksCubeBlock.cpp" />
-    <ClCompile Include="RubiksCubeBlockCenter.cpp" />
-    <ClCompile Include="RubiksCubeBlockCorner.cpp" />
-    <ClCompile Include="RubiksCubeBlockEdge.cpp" />
-    <ClCompile Include="RubiksCubeCore.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Text2D.cpp" />
     <ClCompile Include="Texture2D.cpp" />

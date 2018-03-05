@@ -27,8 +27,6 @@ private:
 	
 	float mCurrentTime;
 	Camera* mCamera;
-	RubiksCubeCore* mCubeCore;
-	GameObject* mCola;
 
 	void SetLight();
 	void SetMaterial();

@@ -21,11 +21,7 @@ GameScreenLevel1::GameScreenLevel1() : GameScreen()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	//mCola = new GameObject(Vector3D(0, 0, 0), "Can.obj");
-
 	mCamera = new Camera();
-
-	mCubeCore = new RubiksCubeCore();
 	
 	float aspect = (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT;
 	gluPerspective(60.0f,aspect,0.1f,1000.0f);
@@ -82,8 +78,6 @@ void GameScreenLevel1::Render()
 	*/
 
 	mCamera->Render();
-	//mCola->Render();
-	mCubeCore->Render();
 
 	RenderHUDText();
 }
@@ -95,8 +89,6 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	mCurrentTime += deltaTime;
 
 	mCamera->Update(deltaTime, e);
-	//mCola->Update(deltaTime, e);
-	mCubeCore->Update(deltaTime, e);
 }
 
 //--------------------------------------------------------------------------------------------------

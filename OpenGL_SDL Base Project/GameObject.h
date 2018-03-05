@@ -31,11 +31,20 @@ public:
 	Transform mTransform;
 	Quaternion mQuatRotation;
 
+	GameObject* GetParent();
+	GameObject* GetChild(int index);
+	void SetParent(GameObject* parentObject);
+	void AddChild(GameObject* newChild);
+	vector<GameObject*> GetChildren();
+
 private:
 	char fileName[20];
 	char textureName[30];
 
 	obj_type object;
+	
+	GameObject* parent;
+	vector<GameObject*> children;
 };
 
 #endif

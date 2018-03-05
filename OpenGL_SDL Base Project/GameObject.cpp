@@ -15,7 +15,40 @@ GameObject::GameObject(Vector3D startPosition, string modelFileName)
 
 GameObject::~GameObject()
 {
-	
+	children.clear();
+	parent = NULL;
+}
+
+void GameObject::SetParent(GameObject* newParent)
+{
+	parent = newParent;
+	parent->AddChild(this);
+}
+
+void GameObject::AddChild(GameObject* newChild)
+{
+	children.push_back(newChild);
+}
+
+vector<GameObject*> GameObject::GetChildren()
+{
+	return children;
+}
+
+GameObject* GameObject::GetParent()
+{
+	if (parent != NULL)
+		return parent;
+	else
+		return NULL;
+}
+
+GameObject* GameObject::GetChild(int index)
+{
+	if (children[index] != NULL)
+		return children[index];
+	else
+		return NULL;
 }
 
 void GameObject::LoadModel()
@@ -57,6 +90,11 @@ Vector3D GameObject::GetScale()
 void GameObject::Render()
 {
 	glPushMatrix();
+
+	for (unsigned int i = 0; i < children.size(); i++)
+	{
+		children[i]->Render();
+	}
 
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
