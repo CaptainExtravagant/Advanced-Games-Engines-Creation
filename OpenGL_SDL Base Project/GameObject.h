@@ -2,6 +2,7 @@
 #define _GAMEOBJECT_H
 
 #include "Commons.h"
+#include "BaseComponent.h"
 #include <vector>
 #include <SDL.h>
 
@@ -37,6 +38,10 @@ public:
 	void AddChild(GameObject* newChild);
 	vector<GameObject*> GetChildren();
 
+	BaseComponent* GetComponent(BaseComponent type);
+	BaseComponent* GetComponentInChildren(BaseComponent type);
+	vector<BaseComponent*> GetComponentsInChildren(BaseComponent type);
+
 private:
 	char fileName[20];
 	char textureName[30];
@@ -45,6 +50,7 @@ private:
 	
 	GameObject* parent;
 	vector<GameObject*> children;
+	vector<BaseComponent*> components;
 };
 
 #endif

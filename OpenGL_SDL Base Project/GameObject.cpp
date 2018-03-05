@@ -19,6 +19,25 @@ GameObject::~GameObject()
 	parent = NULL;
 }
 
+BaseComponent* GameObject::GetComponent(BaseComponent type)
+{
+	for (unsigned int i = 0; i < components.size(); i++)
+	{
+		if (components[i] == type)
+			return components[i];
+	}
+}
+
+BaseComponent* GameObject::GetComponentInChildren(BaseComponent type)
+{
+
+}
+
+vector<BaseComponent*> GameObject::GetComponentsInChildren(BaseComponent type)
+{
+
+}
+
 void GameObject::SetParent(GameObject* newParent)
 {
 	parent = newParent;
