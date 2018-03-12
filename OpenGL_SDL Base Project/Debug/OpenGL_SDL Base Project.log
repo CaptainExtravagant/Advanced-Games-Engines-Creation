@@ -1,4 +1,9 @@
-﻿  GameScreenLevel1.cpp
+﻿  BaseComponent.cpp
+  Generating Code...
+  Compiling...
+  GameScreenManager.cpp
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  GameScreenLevel1.cpp
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   GameObject.cpp
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -22,10 +27,6 @@ c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl ba
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(331): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(348): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
-  GameScreenManager.cpp
-c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(346): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Camera.cpp
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(70): warning C4244: '=': conversion from 'double' to 'float', possible loss of data

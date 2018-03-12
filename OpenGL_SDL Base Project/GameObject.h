@@ -3,6 +3,7 @@
 
 #include "Commons.h"
 #include "BaseComponent.h"
+#include "Texture2D.h"
 #include <vector>
 #include <SDL.h>
 
@@ -11,7 +12,7 @@ using namespace std;
 class GameObject
 {
 public:
-	GameObject(Vector3D startPosition, string modelFileName);
+	GameObject(Vector3D startPosition, string modelFileName, string textureFileName);
 	~GameObject();
 
 	void SetPosition(Vector3D newPosition);
@@ -38,15 +39,21 @@ public:
 	void AddChild(GameObject* newChild);
 	vector<GameObject*> GetChildren();
 
-	BaseComponent* GetComponent(BaseComponent type);
-	BaseComponent* GetComponentInChildren(BaseComponent type);
-	vector<BaseComponent*> GetComponentsInChildren(BaseComponent type);
+	template<class T>
+	BaseComponent* GetComponent();
+
+	template<class T>
+	BaseComponent* GetComponentInChildren();
+
+	template<class T>
+	vector<BaseComponent*> GetComponentsInChildren();
 
 private:
 	char fileName[20];
 	char textureName[30];
 
 	obj_type object;
+	Texture2D texture;
 	
 	GameObject* parent;
 	vector<GameObject*> children;

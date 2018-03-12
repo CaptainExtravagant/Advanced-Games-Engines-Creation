@@ -2,7 +2,7 @@
 #include "../gl/glut.h"
 #include "OBJLoader.h"
 
-GameObject::GameObject(Vector3D startPosition, string modelFileName)
+GameObject::GameObject(Vector3D startPosition, string modelFileName, string textureFileName)
 {
 	//Start position
 	mTransform = Transform(startPosition, Vector3D(0, 0, 0), Vector3D(1, 1, 1));
@@ -10,7 +10,10 @@ GameObject::GameObject(Vector3D startPosition, string modelFileName)
 
 	//Load mesh
 	strcpy_s(fileName, modelFileName.c_str());
+	strcpy_s(textureName, textureFileName.c_str());
+
 	LoadModel();
+	LoadTexture();
 }
 
 GameObject::~GameObject()
@@ -19,23 +22,38 @@ GameObject::~GameObject()
 	parent = NULL;
 }
 
-BaseComponent* GameObject::GetComponent(BaseComponent type)
+template<class T>
+BaseComponent* GameObject::GetComponent()
 {
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		if (components[i] == type)
+		if ((T)components[i])
 			return components[i];
 	}
 }
 
-BaseComponent* GameObject::GetComponentInChildren(BaseComponent type)
+template<class T>
+BaseComponent* GameObject::GetComponentInChildren()
 {
-
+	for (unsigned int i = 0; i < children.size(); i++)
+	{
+		if (children[i]->GetComponent<T>())
+			return children[i]->GetComponent<T>();
+	}
 }
 
-vector<BaseComponent*> GameObject::GetComponentsInChildren(BaseComponent type)
+template<class T>
+vector<BaseComponent*> GameObject::GetComponentsInChildren()
 {
+	vector<BaseComponent*> componentVector;
 
+	for (unsigned int i = 0; i < children.size(); i++)
+	{
+		if (children[i]->GetComponent<T>())
+			componentVector.push_back(children[i]->GetComponent<T>());
+	}
+
+	return componentVector;
 }
 
 void GameObject::SetParent(GameObject* newParent)
@@ -74,6 +92,11 @@ void GameObject::LoadModel()
 {
 	if (fileName[0] != '---')
 		LoadOBJ(fileName, &object);
+}
+
+void GameObject::LoadTexture()
+{
+	texture.Load(textureName, 516, 516);
 }
 
 void GameObject::SetPosition(Vector3D newPosition)
