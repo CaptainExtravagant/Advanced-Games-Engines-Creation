@@ -79,8 +79,13 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="GameScreenGameover.h" />
+    <ClInclude Include="GameScreenHighscores.h" />
+    <ClInclude Include="GameScreenIntro.h" />
     <ClInclude Include="GameScreenLevel1.h" />
+    <ClInclude Include="GameScreenLevel2.h" />
     <ClInclude Include="GameScreenManager.h" />
+    <ClInclude Include="GameScreenMenu.h" />
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="Text2D.h" />
     <ClInclude Include="Texture2D.h" />
@@ -90,8 +95,13 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="GameScreenGameover.cpp" />
+    <ClCompile Include="GameScreenHighscores.cpp" />
+    <ClCompile Include="GameScreenIntro.cpp" />
     <ClCompile Include="GameScreenLevel1.cpp" />
+    <ClCompile Include="GameScreenLevel2.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
+    <ClCompile Include="GameScreenMenu.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Text2D.cpp" />

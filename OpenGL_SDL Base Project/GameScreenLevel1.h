@@ -4,7 +4,6 @@
 #include <SDL.h>
 #include "GameScreen.h"
 #include "Camera.h"
-#include "RubiksCubeCore.h"
 #include <string>
 
 class GameScreenLevel1 : GameScreen
