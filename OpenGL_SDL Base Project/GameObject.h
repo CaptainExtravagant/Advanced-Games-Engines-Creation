@@ -58,6 +58,8 @@ private:
 	GameObject* parent;
 	vector<GameObject*> children;
 	vector<BaseComponent*> components;
+
+	void SetMaterial();
 };
 
 #endif

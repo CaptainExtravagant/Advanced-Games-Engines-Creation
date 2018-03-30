@@ -26,71 +26,84 @@ Camera* Camera::GetInstance()
 	return instance;
 }
 
+bool Camera::GetMovementEnabled()
+{
+	return movementEnabled;
+}
+
+void Camera::SetMovementEnabled(bool enabled)
+{
+	movementEnabled = enabled;
+}
+
 void Camera::Update(float deltaTime, SDL_Event e)
 {
-	//Forward Vector: Spherical coordinates to Cartesian coordiantes conversion (also known as the 'look' direction)
-	forward = Vector3D(
-		cos(pitch) * sin(yaw),
-		sin(pitch),
-		cos(pitch) * cos(yaw));
+		//Forward Vector: Spherical coordinates to Cartesian coordiantes conversion (also known as the 'look' direction)
+		forward = Vector3D(
+			cos(pitch) * sin(yaw),
+			sin(pitch),
+			cos(pitch) * cos(yaw));
 
-	//Right Vector
-	right = Vector3D(
-		sin(yaw - 3.14f / 2.0f),
-		0,
-		cos(yaw - 3.14f / 2.0f));
+		//Right Vector
+		right = Vector3D(
+			sin(yaw - 3.14f / 2.0f),
+			0,
+			cos(yaw - 3.14f / 2.0f));
 
-	//Up vector: perpendicular to both forward and right, calculate using the cross product
-	up = Vector3D((right.y*forward.z) - (right.z*forward.y),
-		(right.z*forward.x) - (right.x*forward.z),
-		(right.x*forward.y) - (right.y*forward.x));
-	
-	//Event Handler
-	if (e.type == SDL_KEYDOWN)
-	{
-		switch (e.key.keysym.sym)
+		//Up vector: perpendicular to both forward and right, calculate using the cross product
+		up = Vector3D((right.y*forward.z) - (right.z*forward.y),
+			(right.z*forward.x) - (right.x*forward.z),
+			(right.x*forward.y) - (right.y*forward.x));
+
+		if (movementEnabled)
 		{
-		case SDLK_UP:
-			//move forwards
-			position += forward * moveSpeed;
-			break;
-
-		case SDLK_DOWN:
-			//move backwards
-			position -= forward * moveSpeed;
-			break;
-
-		case SDLK_RIGHT:
-			//Strafe right
-			position += right * moveSpeed;
-			break;
-
-		case SDLK_LEFT:
-			//Strafe left
-			position -= right * moveSpeed;
-			break;
-		}
-	}
-
-	//Camera movement with mouse input
-	if (e.type == SDL_MOUSEMOTION)
-	{
-		if (e.motion.xrel < 0)
+		//Event Handler
+		if (e.type == SDL_KEYDOWN)
 		{
-			yaw += lookSpeed;
-		}
-		else if (e.motion.xrel > 0)
-		{
-			yaw -= lookSpeed;
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_UP:
+				//move forwards
+				position += forward * moveSpeed;
+				break;
+
+			case SDLK_DOWN:
+				//move backwards
+				position -= forward * moveSpeed;
+				break;
+
+			case SDLK_RIGHT:
+				//Strafe right
+				position += right * moveSpeed;
+				break;
+
+			case SDLK_LEFT:
+				//Strafe left
+				position -= right * moveSpeed;
+				break;
+			}
 		}
 
-		if (e.motion.yrel < 0)
+		//Camera movement with mouse input
+		if (e.type == SDL_MOUSEMOTION)
 		{
-			pitch += lookSpeed;
-		}
-		else if (e.motion.yrel > 0)
-		{
-			pitch -= lookSpeed;
+			if (e.motion.xrel < 0)
+			{
+				yaw += lookSpeed;
+			}
+			else if (e.motion.xrel > 0)
+			{
+				yaw -= lookSpeed;
+			}
+
+			if (e.motion.yrel < 0)
+			{
+				pitch += lookSpeed;
+			}
+			else if (e.motion.yrel > 0)
+			{
+				pitch -= lookSpeed;
+			}
 		}
 	}
 }

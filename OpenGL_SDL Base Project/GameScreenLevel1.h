@@ -19,16 +19,24 @@ public:
 
 //--------------------------------------------------------------------------------------------------
 private:
-
-	void OutputLine(float x, float y, string text);
+	
+	void SetLight();
 
 	void RenderHUDText();
 	
-	float mCurrentTime;
+	float mCurrentTime = 0;
 	Camera* mCamera;
 
-	void SetLight();
-	void SetMaterial();
+	//Player
+	//Balls
+	//Court Plane
+
+	//HUD Text - Balls Hit
+	Text2D* mHUDBalls;
+	
+	//HUD Text - Timer
+	Text2D* mHUDTimer;
+
 };
 
 

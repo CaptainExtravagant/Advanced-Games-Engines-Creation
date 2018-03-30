@@ -14,9 +14,13 @@ public:
 	void Update(float deltaTime, SDL_Event e);
 	void Render();
 	void Render(GameObject targetObject);
+	void SetMovementEnabled(bool enabled);
+	bool GetMovementEnabled();
 
 private:
-	Vector3D position = Vector3D(0, 0, 10);
+	bool movementEnabled = true;
+
+	Vector3D position = Vector3D(0, 5, 5);
 	Vector3D forward = Vector3D();
 	Vector3D up = Vector3D();
 	Vector3D right = Vector3D();

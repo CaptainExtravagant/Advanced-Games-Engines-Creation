@@ -133,6 +133,8 @@ void GameObject::Render()
 {
 	glPushMatrix();
 
+	SetMaterial();
+
 	for (unsigned int i = 0; i < children.size(); i++)
 	{
 		children[i]->Render();
@@ -203,6 +205,21 @@ void GameObject::RenderModel()
 	}
 
 	glEnd();
+}
+
+void GameObject::SetMaterial()
+{
+	material material = {
+		{ 0.80f, 0.05f, 0.05f, 1.0f },
+		{ 0.80f, 0.05f, 0.05f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		100.0f
+	};
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, material.ambient);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, material.diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, material.specular);
+	glMaterialf(GL_FRONT, GL_SHININESS, material.shininess);
 }
 
 void GameObject::Update(float deltaTime, SDL_Event e)
