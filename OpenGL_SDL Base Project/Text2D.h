@@ -11,20 +11,21 @@ class Text2D
 {
 public:
 
-	Text2D();
+	Text2D(string inText, float x, float y);
 	~Text2D();
 
-	void PrintText(const char* text, int x, int y, int size);
-	void CleanUpText();
+	void PrintText();
+	void ClearText();
+	void UpdateText(string inText);
+	void UpdatePosition(float x, float y);
 
-	int textureID;
-	int vertexBufferID;
-	int uvBufferID;
-	int shaderID;
-	int uniformID;
+protected:
+	void OutputLine();
 
 private:
-	void InitText2D(const char* texturePath);
+	Vector2D position;
+	string text;
+
 };
 
 #endif

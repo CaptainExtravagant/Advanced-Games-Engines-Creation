@@ -39,7 +39,7 @@ int main(int argc, char* args[])
 	if(InitSDL())
 	{
 		//Set up the game screen manager - Start with Level1
-		gameScreenManager = new GameScreenManager(SCREEN_LEVEL1);
+		gameScreenManager = new GameScreenManager(SCREEN_INTRO);
 		
 		//Start the music.
 		//LoadMusic("Music/bubble-bobble.mp3");

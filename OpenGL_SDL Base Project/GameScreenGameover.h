@@ -10,7 +10,7 @@ class GameScreenGameover : GameScreen
 {
 	//--------------------------------------------------------------------------------------------------
 public:
-	GameScreenGameover();
+	GameScreenGameover(GameScreenManager* manager);
 	~GameScreenGameover();
 
 	bool		SetUpLevel();

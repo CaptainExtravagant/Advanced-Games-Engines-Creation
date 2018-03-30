@@ -60,37 +60,37 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 	switch(newScreen)
 	{
 		case SCREEN_INTRO:
-			tempIntro = new GameScreenIntro();
+			tempIntro = new GameScreenIntro(this);
 			mCurrentScreen = (GameScreen*)tempIntro;
 			tempIntro = NULL;
 		break;
 
 		case SCREEN_MENU:
-			tempMenu = new GameScreenMenu();
+			tempMenu = new GameScreenMenu(this);
 			mCurrentScreen = (GameScreen*)tempMenu;
 			tempMenu = NULL;
 		break;
 
 		case SCREEN_LEVEL1:
-			tempScreen1 = new GameScreenLevel1();
+			tempScreen1 = new GameScreenLevel1(this);
 			mCurrentScreen = (GameScreen*)tempScreen1;
 			tempScreen1 = NULL;
 		break;
 
 		case SCREEN_LEVEL2:
-			tempScreen2 = new GameScreenLevel2();
+			tempScreen2 = new GameScreenLevel2(this);
 			mCurrentScreen = (GameScreen*)tempScreen2;
 			tempScreen2 = NULL;
 			break;
 		
 		case SCREEN_GAMEOVER:
-			tempOver = new GameScreenGameover();
+			tempOver = new GameScreenGameover(this);
 			mCurrentScreen = (GameScreen*)tempOver;
 			tempOver = NULL;
 		break;
 		
 		case SCREEN_HIGHSCORES:
-			tempScores = new GameScreenHighscores();
+			tempScores = new GameScreenHighscores(this);
 			mCurrentScreen = (GameScreen*)tempScores;
 			tempScores = NULL;
 		break;

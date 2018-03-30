@@ -5,12 +5,13 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include <string>
+#include "Button.h"
 
 class GameScreenMenu : GameScreen
 {
 	//--------------------------------------------------------------------------------------------------
 public:
-	GameScreenMenu();
+	GameScreenMenu(GameScreenManager* manager);
 	~GameScreenMenu();
 
 	bool		SetUpLevel();
@@ -20,7 +21,23 @@ public:
 	//--------------------------------------------------------------------------------------------------
 private:
 
+	void SetLight();
+	void SetMaterial();
+
+	void UpdateTutorialText();
+
 	float mCurrentTime;
+
+	Button* mLevel1Button;
+	Button* mLevel2Button;
+	Text2D* mTutorialText;
+
+	string level1Text;
+	string level2Text;
+
+	int focusedButton;
+
+	Camera* mCamera;
 };
 
 #endif

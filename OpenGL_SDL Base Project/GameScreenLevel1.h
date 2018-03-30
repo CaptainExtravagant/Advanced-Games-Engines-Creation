@@ -10,7 +10,7 @@ class GameScreenLevel1 : GameScreen
 {
 //--------------------------------------------------------------------------------------------------
 public:
-	GameScreenLevel1();
+	GameScreenLevel1(GameScreenManager* manager);
 	~GameScreenLevel1();
 
 	bool		SetUpLevel();

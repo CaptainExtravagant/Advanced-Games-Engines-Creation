@@ -11,7 +11,7 @@ using namespace::std;
 
 //--------------------------------------------------------------------------------------------------
 
-GameScreenLevel1::GameScreenLevel1() : GameScreen()
+GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(manager)
 {
 	srand(time(NULL));
 
@@ -38,16 +38,16 @@ GameScreenLevel1::GameScreenLevel1() : GameScreen()
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
-	glEnable(GL_TEXTURE_2D);
-
-	Texture2D* texture = new Texture2D();
-	texture->Load("BlockUV.raw", 1024, 1024);
-
-	glBindTexture(GL_TEXTURE_2D, texture->GetID());
-
-	//Set parameters to render correctly
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	//glEnable(GL_TEXTURE_2D);
+	//
+	//Texture2D* texture = new Texture2D();
+	//texture->Load("BlockUV.raw", 1024, 1024);
+	//
+	//glBindTexture(GL_TEXTURE_2D, texture->GetID());
+	//
+	////Set parameters to render correctly
+	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -10,7 +10,7 @@ class GameScreenHighscores : GameScreen
 {
 	//--------------------------------------------------------------------------------------------------
 public:
-	GameScreenHighscores();
+	GameScreenHighscores(GameScreenManager* manager);
 	~GameScreenHighscores();
 
 	bool		SetUpLevel();

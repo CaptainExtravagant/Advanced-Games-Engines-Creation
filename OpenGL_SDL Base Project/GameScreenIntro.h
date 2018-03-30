@@ -5,12 +5,13 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include <string>
+#include "Text2D.h"
 
 class GameScreenIntro : GameScreen
 {
 	//--------------------------------------------------------------------------------------------------
 public:
-	GameScreenIntro();
+	GameScreenIntro(GameScreenManager* manager);
 	~GameScreenIntro();
 
 	bool		SetUpLevel();
@@ -22,6 +23,8 @@ private:
 		
 	float mCurrentTime;
 	float splashTimer;
+
+	Text2D* mLogoText;
 };
 
 #endif
