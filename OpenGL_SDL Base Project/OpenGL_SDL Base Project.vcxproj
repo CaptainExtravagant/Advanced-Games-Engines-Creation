@@ -73,11 +73,14 @@
     <Library Include="SDL\SDL2_mixer.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BallSpawner.h" />
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Commons.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Dodgeball.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="GameScreenGameover.h" />
@@ -88,13 +91,17 @@
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="GameScreenMenu.h" />
     <ClInclude Include="OBJLoader.h" />
+    <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Text2D.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BallSpawner.cpp" />
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Dodgeball.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="GameScreenGameover.cpp" />
@@ -105,6 +112,8 @@
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="GameScreenMenu.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
+    <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Text2D.cpp" />
     <ClCompile Include="Texture2D.cpp" />

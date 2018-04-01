@@ -5,3 +5,6 @@
 //Screen dimensions.
 #define SCREEN_WIDTH	800
 #define SCREEN_HEIGHT	600
+
+#define GRAVITY_STRENGTH 0.98f
+#define GROUND 2

@@ -13,14 +13,14 @@ public:
 	static Camera* GetInstance();
 	void Update(float deltaTime, SDL_Event e);
 	void Render();
-	void Render(GameObject targetObject);
+	void Render(GameObject* targetObject);
 	void SetMovementEnabled(bool enabled);
 	bool GetMovementEnabled();
 
 private:
 	bool movementEnabled = true;
 
-	Vector3D position = Vector3D(0, 5, 5);
+	Vector3D position = Vector3D(5, 10, 20);
 	Vector3D forward = Vector3D();
 	Vector3D up = Vector3D();
 	Vector3D right = Vector3D();

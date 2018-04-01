@@ -5,6 +5,9 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include <string>
+#include "PlayerCharacter.h"
+#include "GameObject.h"
+#include "BallSpawner.h"
 
 class GameScreenLevel1 : GameScreen
 {
@@ -21,6 +24,7 @@ public:
 private:
 	
 	void SetLight();
+	void SetMaterial();
 
 	void RenderHUDText();
 	
@@ -28,7 +32,9 @@ private:
 	Camera* mCamera;
 
 	//Player
+	PlayerCharacter* mPlayer;
 	//Balls
+	BallSpawner* mSpawner;
 	//Court Plane
 
 	//HUD Text - Balls Hit
@@ -36,6 +42,8 @@ private:
 	
 	//HUD Text - Timer
 	Text2D* mHUDTimer;
+
+	int courtTextureID;
 
 };
 

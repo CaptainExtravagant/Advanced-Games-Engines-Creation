@@ -37,14 +37,26 @@ GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(mana
 
 	//Enable lighting
 	glEnable(GL_LIGHTING);
+	//Directional Light
 	glEnable(GL_LIGHT0);
 
+	//Spotlights
+	glEnable(GL_LIGHT1);
+	glEnable(GL_LIGHT2);
+	glEnable(GL_LIGHT3);
+
 	glEnable(GL_TEXTURE_2D);
-	
+
+	mPlayer = new PlayerCharacter(Vector3D(-10, 2, 0), "Ball.obj", "GreenBall.raw");
+
+	mSpawner = new BallSpawner();
+		
 	Texture2D* texture = new Texture2D();
 	texture->Load("Court.raw", 512, 512);
 	
-	glBindTexture(GL_TEXTURE_2D, texture->GetID());
+	courtTextureID = texture->GetID();
+
+	glBindTexture(GL_TEXTURE_2D, courtTextureID);
 	
 	//Set parameters to render correctly
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -69,7 +81,13 @@ void GameScreenLevel1::Render()
 	//Clear the screen.
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	SetMaterial();
 	SetLight();
+
+	mPlayer->Render();
+	mSpawner->Render();
+
+	glBindTexture(GL_TEXTURE_2D, courtTextureID);
 
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f);
@@ -82,7 +100,7 @@ void GameScreenLevel1::Render()
 	glVertex3f(-12.0f, 0.0f, 8.0f);
 	glEnd();
 
-	mCamera->Render();
+	mCamera->Render(mPlayer);
 
 	RenderHUDText();
 }
@@ -92,8 +110,10 @@ void GameScreenLevel1::Render()
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
 	mCurrentTime += deltaTime;
-	mHUDTimer->UpdateText("Timer: " + to_string((int)mCurrentTime));
+	mPlayer->Update(deltaTime, e);
+	mSpawner->Update(deltaTime, e);
 
+	mHUDTimer->UpdateText("Timer: " + to_string((int)mCurrentTime));
 	mCamera->Update(deltaTime, e);
 }
 
@@ -103,6 +123,21 @@ void GameScreenLevel1::RenderHUDText()
 {
 	mHUDTimer->PrintText();
 	mHUDBalls->PrintText();
+}
+
+void GameScreenLevel1::SetMaterial()
+{
+	material material = {
+		{ 0.10f, 0.10f, 0.10f, 1.0f },
+		{ 0.80f, 0.80f, 0.80f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		100.0f
+	};
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, material.ambient);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, material.diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, material.specular);
+	glMaterialf(GL_FRONT, GL_SHININESS, material.shininess);
 }
 
 void GameScreenLevel1::SetLight()
@@ -122,5 +157,40 @@ void GameScreenLevel1::SetLight()
 	glLightfv(GL_LIGHT0, GL_SPECULAR, light.specular);
 	glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
 
+	lighting spotRed = {
+		{1.0f, 0.0f, 0.0f, 1.0f},
+		{1.0f, 0.0f, 0.0f, 1.0f},
+		{1.0f, 0.0f, 0.0f, 1.0f}
+	};
+	float red_pos[] = { 10.0f, 5.0f, 8.0f, 1.0f };
+
+	lighting spotGreen = {
+		{ 0.0f, 1.0f, 0.0f, 1.0f },
+		{ 0.0f, 1.0f, 0.0f, 1.0f },
+		{ 0.0f, 1.0f, 0.0f, 1.0f }
+	};
+	float green_pos[] = { 0.0f, 5.0f, 8.0f, 1.0f };
+
+	lighting spotBlue = {
+		{ 0.0f, 0.0f, 1.0f, 1.0f },
+		{ 0.0f, 0.0f, 1.0f, 1.0f },
+		{ 0.0f, 0.0f, 1.0f, 1.0f }
+	};
+	float blue_pos[] = { -10.0f, 5.0f, 8.0f, 1.0f };
+
+	glLightfv(GL_LIGHT1, GL_AMBIENT, spotRed.ambient);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, spotRed.diffuse);
+	glLightfv(GL_LIGHT1, GL_SPECULAR, spotRed.specular);
+	glLightfv(GL_LIGHT1, GL_POSITION, red_pos);
+
+	glLightfv(GL_LIGHT2, GL_AMBIENT, spotGreen.ambient);
+	glLightfv(GL_LIGHT2, GL_DIFFUSE, spotGreen.diffuse);
+	glLightfv(GL_LIGHT2, GL_SPECULAR, spotGreen.specular);
+	glLightfv(GL_LIGHT2, GL_POSITION, green_pos);
+
+	glLightfv(GL_LIGHT3, GL_AMBIENT, spotBlue.ambient);
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, spotBlue.diffuse);
+	glLightfv(GL_LIGHT3, GL_SPECULAR, spotBlue.specular);
+	glLightfv(GL_LIGHT3, GL_POSITION, blue_pos);
 	
 }

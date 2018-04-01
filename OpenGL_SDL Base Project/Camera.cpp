@@ -115,9 +115,9 @@ void Camera::Render()
 	gluLookAt(position.x, position.y, position.z, lookatPos.x, lookatPos.y, lookatPos.z, up.x, up.y, up.z);
 }
 
-void Camera::Render(GameObject targetObject)
+void Camera::Render(GameObject* targetObject)
 {
-	Vector3D lookatPos = targetObject.GetPosition();
+	Vector3D lookatPos = targetObject->GetPosition();
 	glLoadIdentity();
 	gluLookAt(position.x, position.y, position.z, lookatPos.x, lookatPos.y, lookatPos.z, up.x, up.y, up.z);
 }

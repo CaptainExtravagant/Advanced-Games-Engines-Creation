@@ -48,18 +48,17 @@ public:
 	template<class T>
 	vector<BaseComponent*> GetComponentsInChildren();
 
-private:
+protected:
 	char fileName[20];
 	char textureName[30];
 
 	obj_type object;
-	Texture2D texture;
+	Texture2D* texture;
 	
 	GameObject* parent;
 	vector<GameObject*> children;
 	vector<BaseComponent*> components;
 
-	void SetMaterial();
 };
 
 #endif

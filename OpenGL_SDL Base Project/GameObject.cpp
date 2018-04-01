@@ -96,7 +96,8 @@ void GameObject::LoadModel()
 
 void GameObject::LoadTexture()
 {
-	texture.Load(textureName, 516, 516);
+	texture = new Texture2D();
+	texture->Load(textureName, 1024, 1024);
 }
 
 void GameObject::SetPosition(Vector3D newPosition)
@@ -133,8 +134,6 @@ void GameObject::Render()
 {
 	glPushMatrix();
 
-	SetMaterial();
-
 	for (unsigned int i = 0; i < children.size(); i++)
 	{
 		children[i]->Render();
@@ -152,7 +151,9 @@ void GameObject::Render()
 	glScalef(mTransform.scale.x, mTransform.scale.y, mTransform.scale.z);
 
 	//Bind Texture
-	glBindTexture(GL_TEXTURE_2D, 1);
+	glBindTexture(GL_TEXTURE_2D, texture->GetID());
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	RenderModel();
 		
@@ -207,56 +208,7 @@ void GameObject::RenderModel()
 	glEnd();
 }
 
-void GameObject::SetMaterial()
-{
-	material material = {
-		{ 0.80f, 0.05f, 0.05f, 1.0f },
-		{ 0.80f, 0.05f, 0.05f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		100.0f
-	};
-
-	glMaterialfv(GL_FRONT, GL_AMBIENT, material.ambient);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, material.diffuse);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, material.specular);
-	glMaterialf(GL_FRONT, GL_SHININESS, material.shininess);
-}
-
 void GameObject::Update(float deltaTime, SDL_Event e)
 {
-	/*
-	//Reset rotation if less than 0
-	if (mTransform.rotation.x < 0)
-	{
-	mTransform.rotation.x += 360;
-	}
 
-	if (mTransform.rotation.y < 0)
-	{
-	mTransform.rotation.y += 360;
-	}
-
-	if (mTransform.rotation.z < 0)
-	{
-	mTransform.rotation.z += 360;
-	}
-
-	//Reset rotation if more than 360
-	if (mTransform.rotation.x > 360)
-	{
-	mTransform.rotation.x -= 360;
-	}
-
-	if (mTransform.rotation.y > 360)
-	{
-	mTransform.rotation.y -= 360;
-	}
-
-	if (mTransform.rotation.z > 360)
-	{
-	mTransform.rotation.z -= 360;
-	}
-	*/
-
-	mQuatRotation.FromEuler(mTransform.rotation.x, mTransform.rotation.y, mTransform.rotation.z);
 }

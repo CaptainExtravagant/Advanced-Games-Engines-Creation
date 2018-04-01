@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include <random>
 
 enum SCREENS
 {
@@ -185,6 +186,15 @@ struct Vector3D
 	Vector3D operator* (float scalar)
 	{
 		return Vector3D(x * scalar, y * scalar, z * scalar);
+	}
+
+	Vector3D operator*= (float scalar)
+	{
+		x = x * scalar;
+		y = y * scalar;
+		z = z * scalar;
+
+		return *this;
 	}
 
 	Vector3D operator+ (const Vector3D& other)
