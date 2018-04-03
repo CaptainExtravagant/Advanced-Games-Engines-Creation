@@ -89,12 +89,12 @@ bool InitSDL()
 		//Did the window get created?
 		if(gWindow != NULL)
 		{
-/*			//Initialise the Mixer.
+			//Initialise the Mixer.
 			if(Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0)
 			{
 				cout << "Mixer could not initialise. Error: " << Mix_GetError();
 				return false;
-			}*/
+			}
 		}
 		else
 		{

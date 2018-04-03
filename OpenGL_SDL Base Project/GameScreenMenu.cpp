@@ -59,8 +59,8 @@ void GameScreenMenu::Render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	SetLight();
 	SetMaterial();
+	//SetLight();
 
 	mCamera->Render();
 
@@ -159,10 +159,10 @@ void GameScreenMenu::SetLight()
 void GameScreenMenu::SetMaterial()
 {
 	material material = {
-		{ 0.95f, 0.95f, 0.95f, 1.0f },
-		{ 0.95f, 0.95f, 0.95f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		100.0f
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		0.0f
 	};
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT, material.ambient);

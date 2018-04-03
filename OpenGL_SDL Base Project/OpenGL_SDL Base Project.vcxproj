@@ -93,6 +93,7 @@
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="Text2D.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
@@ -114,6 +115,7 @@
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Text2D.cpp" />
     <ClCompile Include="Texture2D.cpp" />

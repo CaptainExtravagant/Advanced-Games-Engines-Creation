@@ -27,6 +27,22 @@ public:
 		{
 			velocity.y *= -restitution;
 		}
+
+		return;
+	}
+
+	void Bounce(GameObject* collidedObject)
+	{
+		if (collidedObject != NULL)
+		{
+			Vector3D norm = Vector3D((GetOwningObject()->GetPosition()) - (collidedObject->GetPosition())).Normalise();
+
+			velocity.x *= -norm.x;
+			velocity.y *= -norm.y;
+			velocity.z *= -norm.z;
+		}
+
+		return;
 	}
 
 private:

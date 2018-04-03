@@ -134,10 +134,6 @@ void GameObject::Render()
 {
 	glPushMatrix();
 
-	for (unsigned int i = 0; i < children.size(); i++)
-	{
-		children[i]->Render();
-	}
 
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
@@ -156,6 +152,11 @@ void GameObject::Render()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	RenderModel();
+
+	for (unsigned int i = 0; i < children.size(); i++)
+	{
+		children[i]->Render();
+	}
 		
 	glPopMatrix();
 }

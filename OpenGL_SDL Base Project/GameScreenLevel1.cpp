@@ -13,6 +13,12 @@ using namespace::std;
 
 GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(manager)
 {
+	mScreamSound = new SoundEffect();
+	mScreamSound->LoadClip("Scream.wav");
+
+	mRewardSound = new SoundEffect();
+	mRewardSound->LoadClip("Win.wav");
+
 	srand(time(NULL));
 
 	glEnable(GL_DEPTH_TEST);
@@ -47,7 +53,7 @@ GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(mana
 
 	glEnable(GL_TEXTURE_2D);
 
-	mPlayer = new PlayerCharacter(Vector3D(-10, 2, 0), "Ball.obj", "GreenBall.raw");
+	mPlayer = new PlayerCharacter(Vector3D(-14, 2, 0), "Ball.obj", "GreenBall.raw");
 
 	mSpawner = new BallSpawner();
 		
@@ -66,12 +72,27 @@ GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(mana
 
 	mHUDTimer = new Text2D("Timer: ", 5, 95);
 	mHUDBalls = new Text2D("Balls Hit: 0", 5, 90);
+	mHUDWin = new Text2D("", 50, 90);
 }
 
 //--------------------------------------------------------------------------------------------------
 
 GameScreenLevel1::~GameScreenLevel1()
 {	
+	delete mCamera;
+	mCamera = NULL;
+
+	delete mScreamSound;
+	mScreamSound = NULL;
+
+	delete mRewardSound;
+	mRewardSound = NULL;
+
+	delete mSpawner;
+	mSpawner = NULL;
+
+	delete mPlayer;
+	mPlayer = NULL;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -86,7 +107,8 @@ void GameScreenLevel1::Render()
 
 	mPlayer->Render();
 	mSpawner->Render();
-
+	
+	//Draw Court
 	glBindTexture(GL_TEXTURE_2D, courtTextureID);
 
 	glBegin(GL_QUADS);
@@ -95,9 +117,9 @@ void GameScreenLevel1::Render()
 	glTexCoord2f(0.0f, 1.0f);
 	glVertex3f(12.0f, 0.0f, -8.0f);
 	glTexCoord2f(2.0f, 1.0f);
-	glVertex3f(-12.0f, 0.0f, -8.0f);
+	glVertex3f(-16.0f, 0.0f, -8.0f);
 	glTexCoord2f(2.0f, 0.0f);
-	glVertex3f(-12.0f, 0.0f, 8.0f);
+	glVertex3f(-16.0f, 0.0f, 8.0f);
 	glEnd();
 
 	mCamera->Render(mPlayer);
@@ -110,11 +132,71 @@ void GameScreenLevel1::Render()
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
 	mCurrentTime += deltaTime;
-	mPlayer->Update(deltaTime, e);
-	mSpawner->Update(deltaTime, e);
+	if (!winScreen)
+	{
+		mPlayer->Update(deltaTime, e);
 
-	mHUDTimer->UpdateText("Timer: " + to_string((int)mCurrentTime));
+		if (mPlayer->GetPosition().x >= 12)
+		{
+			//Play Sound
+			mRewardSound->Play();
+
+			//Win Game (Highscore Level)
+			finalScore = mCurrentTime;
+			OpenWinScreen();
+		}
+
+		mSpawner->Update(deltaTime, e);
+
+		if (mSpawner->CheckPlayerCollision(mPlayer))
+		{
+			mPlayer->HitBall();
+			mHUDBalls->UpdateText("Balls Hit: " + to_string(mPlayer->GetHits()));
+			AddBallToPlayer();
+
+			if (mPlayer->GetHits() >= 4)
+			{
+				//Play Sound
+				mScreamSound->Play();
+
+				//Change Level (GameOver)
+				mScreenManager->ChangeScreen(SCREEN_GAMEOVER);
+				return;
+
+			}
+		}
+
+		mHUDTimer->UpdateText("Timer: " + to_string((int)mCurrentTime));
+	}
+	else
+	{
+		winTimer -= deltaTime;
+		if (winTimer <= 0)
+		{
+			mScreenManager->ChangeScreen(SCREEN_MENU);
+			return;
+		}
+	}
+
 	mCamera->Update(deltaTime, e);
+}
+
+void GameScreenLevel1::OpenWinScreen()
+{
+	winScreen = true;
+	mHUDWin->UpdateText("Final Score: " + to_string(finalScore));
+
+}
+
+void GameScreenLevel1::AddBallToPlayer()
+{
+	GameObject* newBall = new GameObject(Vector3D(0, 0, 0), "Ball.obj", "OrangeBall.raw");
+
+	newBall->SetScale(Vector3D(0.5, 0.5, 0.5));
+
+	mPlayer->AddChild(newBall);
+
+	newBall->SetPosition(Vector3D(-4 * mPlayer->GetHits(), 0, 0));
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -123,6 +205,7 @@ void GameScreenLevel1::RenderHUDText()
 {
 	mHUDTimer->PrintText();
 	mHUDBalls->PrintText();
+	mHUDWin->PrintText();
 }
 
 void GameScreenLevel1::SetMaterial()

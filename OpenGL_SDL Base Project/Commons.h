@@ -197,6 +197,15 @@ struct Vector3D
 		return *this;
 	}
 
+	Vector3D operator*= (Vector3D vector)
+	{
+		x = x * vector.x;
+		y = y * vector.y;
+		z = z * vector.z;
+
+		return *this;
+	}
+
 	Vector3D operator+ (const Vector3D& other)
 	{
 		return Vector3D(x + other.x, y + other.y, z + other.z);
@@ -216,6 +225,11 @@ struct Vector3D
 		y -= other.y;
 		z -= other.z;
 		return *this;
+	}
+
+	Vector3D operator- (Vector3D other)
+	{
+		return Vector3D(x - other.x, y - other.y, z - other.z);
 	}
 
 	Vector3D operator= (const Vector3D& other)

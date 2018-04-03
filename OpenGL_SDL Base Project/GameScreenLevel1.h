@@ -8,6 +8,7 @@
 #include "PlayerCharacter.h"
 #include "GameObject.h"
 #include "BallSpawner.h"
+#include "SoundEffect.h"
 
 class GameScreenLevel1 : GameScreen
 {
@@ -22,26 +23,38 @@ public:
 
 //--------------------------------------------------------------------------------------------------
 private:
+	bool winScreen = false;
+	float winTimer = 5.0f;
+	float finalScore;
+
+	void OpenWinScreen();
 	
 	void SetLight();
 	void SetMaterial();
 
 	void RenderHUDText();
+
+	void AddBallToPlayer();
 	
 	float mCurrentTime = 0;
 	Camera* mCamera;
+
+	SoundEffect* mScreamSound;
+	SoundEffect* mRewardSound;
 
 	//Player
 	PlayerCharacter* mPlayer;
 	//Balls
 	BallSpawner* mSpawner;
-	//Court Plane
 
 	//HUD Text - Balls Hit
 	Text2D* mHUDBalls;
 	
 	//HUD Text - Timer
 	Text2D* mHUDTimer;
+
+	//HUD Text - Win Screen
+	Text2D* mHUDWin;
 
 	int courtTextureID;
 

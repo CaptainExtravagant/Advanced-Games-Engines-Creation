@@ -4,6 +4,7 @@
 #include "Commons.h"
 #include "Dodgeball.h"
 #include <vector>
+#include "PlayerCharacter.h"
 
 class BallSpawner
 {
@@ -15,6 +16,7 @@ public:
 	void Render();
 
 	void RemoveBall(Dodgeball* ball);
+	bool CheckPlayerCollision(PlayerCharacter* player);
 
 private:
 	vector<Dodgeball*>activeBalls;

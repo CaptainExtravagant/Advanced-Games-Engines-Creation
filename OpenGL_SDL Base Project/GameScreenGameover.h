@@ -5,6 +5,7 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include <string>
+#include "Text2D.h"
 
 class GameScreenGameover : GameScreen
 {
@@ -19,8 +20,15 @@ public:
 
 	//--------------------------------------------------------------------------------------------------
 private:
+	Text2D* mGameoverText;
+	Camera* mCamera;
 
-	float mCurrentTime;
+	void SetLight();
+	void SetMaterial();
+
+	float timer = 5.0f;
+
+	float mCurrentTime = 0;
 };
 
 #endif
