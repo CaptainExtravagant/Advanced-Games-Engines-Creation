@@ -235,6 +235,7 @@ public:
 			float t;
 			Vector3D pt;
 
+			//Test X
 			if (lineEnd.x > minX)
 			{
 				//Test min
@@ -246,8 +247,8 @@ public:
 					return false;
 				}
 
-				if (0 >= pt.y >= minY &&
-					0 >= pt.z >= minZ)
+				if ((pt.y >= minY && pt.y <= maxY) &&
+					(pt.z >= minZ && pt.z <= maxZ))
 				{
 					return true;
 				}
@@ -263,13 +264,14 @@ public:
 					return false;
 				}
 
-				if (0 <= pt.y <= maxY &&
-					0 <= pt.z <= maxZ)
+				if ((pt.y >= minY && pt.y <= maxY) &&
+					(pt.z >= minZ && pt.z <= maxZ))
 				{
 					return true;
 				}
 			}
 
+			//Test Y
 			if (lineEnd.y > minY)
 			{
 				//Test min
@@ -281,8 +283,8 @@ public:
 					return false;
 				}
 
-				if (0 >= pt.x >= minX &&
-					0 >= pt.z >= minZ)
+				if ((pt.x >= minX && pt.x <= maxX) &&
+					(pt.z >= minZ && pt.z <= maxZ))
 				{
 					return true;
 				}
@@ -298,14 +300,14 @@ public:
 					return false;
 				}
 
-				if (0 <= pt.x <= maxX &&
-					0 <= pt.z <= maxZ)
+				if ((pt.x >= minX && pt.x <= maxX) &&
+					(pt.z >= minZ && pt.z <= maxZ))
 				{
 					return true;
 				}
 			}
 
-
+			//Test Z
 			if (lineEnd.z > minZ)
 			{
 				//Test min
@@ -317,8 +319,8 @@ public:
 					return false;
 				}
 
-				if (0 >= pt.x >= minX &&
-					0 >= pt.y >= minY)
+				if ((pt.x >= minX && pt.x <= maxX) &&
+					(pt.y >= minY && pt.y <= maxY))
 				{
 					return true;
 				}
@@ -334,8 +336,8 @@ public:
 					return false;
 				}
 
-				if (0 <= pt.x <= maxX &&
-					0 <= pt.y <= maxY)
+				if ((pt.x >= minX && pt.x <= maxX) &&
+					(pt.y >= minY && pt.y <= maxY))
 				{
 					return true;
 				}

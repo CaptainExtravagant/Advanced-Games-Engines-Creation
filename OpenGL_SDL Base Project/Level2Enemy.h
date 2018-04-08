@@ -24,8 +24,20 @@ private:
 	CharacterManager* mManager;
 	Level2Player* target;
 
-	void FindTarget();
-	void MoveToTarget(float deltaTime);
+	float distanceToTarget = 0;
+	Vector3D targetPosition;
+	bool targetSet = false;
+
+	enum AI_STATE {
+		AI_SEARCHING = 0,
+		AI_MOVING
+	};
+
+	AI_STATE currentState;
+
+	bool FindTarget();
+	bool MoveToTarget(float deltaTime);
+	void AttackTarget();
 
 	float movement = 4.0f;
 	Box* box;
@@ -35,7 +47,6 @@ private:
 
 	float lookAngle = 0;
 	float attackRange = 2.0f;
-	bool attackReady = true;
 };
 
 #endif

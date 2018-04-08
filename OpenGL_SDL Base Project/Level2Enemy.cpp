@@ -10,6 +10,8 @@ Level2Enemy::Level2Enemy(Vector3D startPosition, string modelName, string textur
 
 	box = new Box(mTransform.position, 2, 2, 2, this);
 	components.push_back(box);
+
+	currentState = AI_SEARCHING;
 }
 
 Level2Enemy::~Level2Enemy()
@@ -20,6 +22,18 @@ Level2Enemy::~Level2Enemy()
 void Level2Enemy::Update(float deltaTime, SDL_Event e)
 {
 	box->Update(mTransform.position);
+
+	switch (currentState)
+	{
+	case AI_SEARCHING:
+		if (FindTarget())
+			currentState = AI_MOVING;
+		break;
+
+	case AI_MOVING:
+		if (MoveToTarget(deltaTime))
+			currentState = AI_SEARCHING;
+	}
 }
 
 void Level2Enemy::Hit(int damageType, float damageValue)
@@ -35,12 +49,49 @@ void Level2Enemy::Hit(int damageType, float damageValue)
 	}
 }
 
-void Level2Enemy::FindTarget()
+bool Level2Enemy::FindTarget()
 {
+	for (int i = 0; i < mManager->GetPlayers().size(); i++)
+	{
+		if (!targetSet)
+		{
+			targetSet = true;
+			target = mManager->GetPlayers()[i];
+			targetPosition = target->GetPosition();
+			distanceToTarget = (mTransform.position - targetPosition).Magnitude();
+		}
+		else if ((mTransform.position - mManager->GetPlayers()[i]->GetPosition()).Magnitude() < distanceToTarget)
+		{
+			targetSet = true;
+			target = mManager->GetPlayers()[i];
+			targetPosition = target->GetPosition();
+			distanceToTarget = (mTransform.position - targetPosition).Magnitude();
+		}
+	}
 
+	return targetSet;
 }
 
-void Level2Enemy::MoveToTarget(float deltaTime)
+bool Level2Enemy::MoveToTarget(float deltaTime)
 {
+	if (targetSet)
+	{
+		mTransform.AddPosition((mTransform.position - target->GetPosition()).Normalise() * deltaTime);
+		if ((mTransform.position - target->GetPosition()).Magnitude() <= attackRange)
+		{
+			if (Collision::SphereBoxCollision(target->GetBoundingSphere(), box))
+			{
+				AttackTarget();
+				targetSet = false;
+				return true;
+			}
+		}
+	}
 
+	return false;
+}
+
+void Level2Enemy::AttackTarget()
+{
+	target->Hit();
 }

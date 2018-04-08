@@ -20,6 +20,8 @@ public:
 	Sphere* GetBoundingSphere() { return sphere; }
 	int GetWeaponType() { return activeWeapon; }
 
+	void Hit();
+
 private:
 	CharacterManager* mManager;
 

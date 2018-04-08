@@ -1,52 +1,17 @@
-﻿  BallSpawner.cpp
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\commons.h(370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\rigidbody.h(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\rigidbody.h(24): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(249): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(250): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(266): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(267): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(284): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(285): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(301): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(302): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(320): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(321): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(337): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(338): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.h(27): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(26): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(28): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(49): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(57): warning C4018: '<': signed/unsigned mismatch
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(72): warning C4018: '<': signed/unsigned mismatch
+﻿  Level2Player.cpp
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\level2player.cpp(219): warning C4018: '<': signed/unsigned mismatch
+  BallSpawner.cpp
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\rigidbody.h(21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\rigidbody.h(24): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.h(27): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(26): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(28): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(42): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(49): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(72): warning C4018: '<': signed/unsigned mismatch
+c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\ballspawner.cpp(80): error C2660: 'remove': function does not take 3 arguments
   Generating Code...
-  Compiling...
-  Level2Player.cpp
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\commons.h(370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(249): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(250): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(266): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(267): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(284): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(285): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(301): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(302): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(320): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(321): warning C4804: '>=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(337): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\collision.h(338): warning C4804: '<=': unsafe use of type 'bool' in operation
-c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\level2player.cpp(219): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  PlayerCharacter.cpp
-  Level2Enemy.cpp
-  GameScreenManager.cpp
-  GameScreenLevel2.cpp
-  GameScreenLevel1.cpp
-  Dodgeball.cpp
-  CharacterManager.cpp
-  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.exe
-  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.pdb (Partial PDB)

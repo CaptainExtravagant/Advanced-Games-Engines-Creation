@@ -254,3 +254,9 @@ void Level2Player::ChangeWeapon(int type)
 		cout << activeWeapon << endl;
 	}
 }
+
+void Level2Player::Hit()
+{
+	//Kill player
+	cout << "Player Hit" << endl;
+}
