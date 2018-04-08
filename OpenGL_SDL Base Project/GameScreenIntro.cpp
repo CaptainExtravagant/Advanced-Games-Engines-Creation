@@ -15,6 +15,7 @@ bool GameScreenIntro::SetUpLevel()
 	splashTimer = 5.0f;
 	mCurrentTime = 0.0f;
 	//Display splash image
+	
 
 	return true;
 }

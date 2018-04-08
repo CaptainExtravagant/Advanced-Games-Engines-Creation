@@ -5,6 +5,7 @@
 #include "GameScreen.h"
 #include "Camera.h"
 #include <string>
+#include "CharacterManager.h"
 
 class GameScreenLevel2 : GameScreen
 {
@@ -19,8 +20,11 @@ public:
 
 	//--------------------------------------------------------------------------------------------------
 private:
+	Camera* mCamera;
 
-	float mCurrentTime;
+	float mCurrentTime = 0;
+
+	CharacterManager* mCharacterManager;
 };
 
 #endif

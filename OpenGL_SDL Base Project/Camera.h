@@ -12,10 +12,16 @@ public:
 	~Camera();
 	static Camera* GetInstance();
 	void Update(float deltaTime, SDL_Event e);
+
 	void Render();
 	void Render(GameObject* targetObject);
+	void Render(Vector3D targetPosition);
+
 	void SetMovementEnabled(bool enabled);
 	bool GetMovementEnabled();
+	void SetPosition(Vector3D pos);
+	void SetYaw(float yaw);
+	void SetPitch(float pitch);
 
 private:
 	bool movementEnabled = true;
@@ -27,7 +33,7 @@ private:
 
 	//horizontal angle: toward -Z
 	float yaw = 3.14f;
-	//vertical angle: 0, look at the horizon
+	//vertical angle: 0, look at the horizon; 90, look down
 	float pitch = 0.0f;
 };
 

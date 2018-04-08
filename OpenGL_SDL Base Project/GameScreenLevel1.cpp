@@ -28,7 +28,7 @@ GameScreenLevel1::GameScreenLevel1(GameScreenManager* manager) : GameScreen(mana
 	glLoadIdentity();
 
 	mCamera = new Camera();
-	mCamera->SetMovementEnabled(true);
+	mCamera->SetMovementEnabled(false);
 
 	float aspect = (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT;
 	gluPerspective(60.0f,aspect,0.1f,1000.0f);
@@ -104,10 +104,7 @@ void GameScreenLevel1::Render()
 
 	SetMaterial();
 	SetLight();
-
-	mPlayer->Render();
-	mSpawner->Render();
-	
+		
 	//Draw Court
 	glBindTexture(GL_TEXTURE_2D, courtTextureID);
 
@@ -121,6 +118,9 @@ void GameScreenLevel1::Render()
 	glTexCoord2f(2.0f, 0.0f);
 	glVertex3f(-16.0f, 0.0f, 8.0f);
 	glEnd();
+
+	mPlayer->Render();
+	mSpawner->Render();
 
 	mCamera->Render(mPlayer);
 

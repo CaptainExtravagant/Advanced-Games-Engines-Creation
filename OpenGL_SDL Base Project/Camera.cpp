@@ -36,6 +36,21 @@ void Camera::SetMovementEnabled(bool enabled)
 	movementEnabled = enabled;
 }
 
+void Camera::SetPosition(Vector3D pos)
+{
+	position = pos;
+}
+
+void Camera::SetYaw(float y)
+{
+	yaw = y;
+}
+
+void Camera::SetPitch(float p)
+{
+	pitch = p;
+}
+
 void Camera::Update(float deltaTime, SDL_Event e)
 {
 		//Forward Vector: Spherical coordinates to Cartesian coordiantes conversion (also known as the 'look' direction)
@@ -118,6 +133,13 @@ void Camera::Render()
 void Camera::Render(GameObject* targetObject)
 {
 	Vector3D lookatPos = targetObject->GetPosition();
+	glLoadIdentity();
+	gluLookAt(position.x, position.y, position.z, lookatPos.x, lookatPos.y, lookatPos.z, up.x, up.y, up.z);
+}
+
+void Camera::Render(Vector3D targetPosition)
+{
+	Vector3D lookatPos = targetPosition;
 	glLoadIdentity();
 	gluLookAt(position.x, position.y, position.z, lookatPos.x, lookatPos.y, lookatPos.z, up.x, up.y, up.z);
 }

@@ -144,30 +144,6 @@ struct Vector3D
 		return normal;
 	}
 
-	float DotProduct(Vector3D point1, Vector3D point2)
-	{
-		float dot;
-		dot = (point1.x * point2.x) + (point1.y * point2.y) + (point1.z * point2.z);
-		return dot;
-	}
-
-	float DotProduct(Vector3D point1, Vector3D point2, float alpha)
-	{
-		float dot;
-		dot = point1.Magnitude() * point2.Magnitude() * cos(alpha);
-		return dot;
-	}
-
-	Vector3D CrossProduct(Vector3D point1, Vector3D point2)
-	{
-		Vector3D cross = Vector3D(
-			(point1.y*point2.z) - (point1.z*point2.y),
-			(point1.z*point2.x) - (point1.x*point2.z),
-			(point1.x*point2.y) - (point1.y*point2.x));
-
-		return cross;
-	}
-
 	Vector3D RotateAroundAxis(float angle, Vector3D axis)
 	{
 		Vector3D newTransform;
@@ -181,6 +157,23 @@ struct Vector3D
 		));
 
 		return newTransform;
+	}
+
+	float DotProduct(Vector3D point2)
+	{
+		float dot;
+		dot = (x * point2.x) + (y * point2.y) + (z * point2.z);
+		return dot;
+	}
+
+	Vector3D CrossProduct(Vector3D point2)
+	{
+		Vector3D cross = Vector3D(
+			(y*point2.z) - (z*point2.y),
+			(z*point2.x) - (x*point2.z),
+			(x*point2.y) - (y*point2.x));
+
+		return cross;
 	}
 
 	Vector3D operator* (float scalar)
@@ -204,6 +197,11 @@ struct Vector3D
 		z = z * vector.z;
 
 		return *this;
+	}
+
+	Vector3D operator* (Vector3D other)
+	{
+		return Vector3D(x * other.x, y * other.y, z * other.z);
 	}
 
 	Vector3D operator+ (const Vector3D& other)
@@ -241,6 +239,7 @@ struct Vector3D
 		return *this;
 	}
 };
+
 
 struct Transform {
 

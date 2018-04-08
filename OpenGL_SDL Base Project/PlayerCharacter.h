@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Collision.h"
 #include "SoundEffect.h"
+#include <math.h>
 
 class PlayerCharacter : public GameObject
 {
@@ -23,7 +24,13 @@ public:
 
 private:
 
+	Vector2D stickInput;
+	SDL_GameController* mController;
+	int controllerIndex = 0;
+
 	float movement;
+	float xDir = 0;
+	float yDir = 0;
 
 	int hits;
 };

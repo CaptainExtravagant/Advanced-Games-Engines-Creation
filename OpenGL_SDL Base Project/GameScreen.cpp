@@ -48,10 +48,10 @@ void GameScreen::SetLight()
 void GameScreen::SetMaterial()
 {
 	material material = {
-		{ 0.95f, 0.95f, 0.95f, 1.0f },
-		{ 0.95f, 0.95f, 0.95f, 1.0f },
 		{ 1.0f, 1.0f, 1.0f, 1.0f },
-		100.0f
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		0.0f
 	};
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT, material.ambient);

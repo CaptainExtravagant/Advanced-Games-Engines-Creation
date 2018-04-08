@@ -39,7 +39,7 @@ int main(int argc, char* args[])
 	if(InitSDL())
 	{
 		//Set up the game screen manager - Start with Level1
-		gameScreenManager = new GameScreenManager(SCREEN_INTRO);
+		gameScreenManager = new GameScreenManager(SCREEN_MENU);
 		
 		//Start the music.
 		//LoadMusic("Music/bubble-bobble.mp3");
@@ -70,7 +70,7 @@ int main(int argc, char* args[])
 bool InitSDL()
 {	
 	//Setup SDL.
-	if(SDL_Init(SDL_INIT_VIDEO) < 0)
+	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		cout << "SDL did not initialise. Error: " << SDL_GetError();
 		return false;
