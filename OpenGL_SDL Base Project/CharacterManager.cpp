@@ -58,16 +58,16 @@ void CharacterManager::SpawnEnemies()
 		switch (RandomFloatInRange(0, 3))
 		{
 		case 0:
-			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-3, 3), 2, 10), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, 13), "Ball.obj", "OrangeBall.raw", 1, this));
 			break;
 		case 1:
-			lEnemies.push_back(new Level2Enemy(Vector3D(10, 2, RandomFloatInRange(-3, 3)), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(18, 2, RandomFloatInRange(-5, 5)), "Ball.obj", "OrangeBall.raw", 1, this));
 			break;
 		case 2:
-			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-3, 3), 2, -10), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, -13), "Ball.obj", "OrangeBall.raw", 1, this));
 			break;
 		case 3:
-			lEnemies.push_back(new Level2Enemy(Vector3D(-10, 2, RandomFloatInRange(-3, 3)), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(-18, 2, RandomFloatInRange(-5, 5)), "Ball.obj", "OrangeBall.raw", 1, this));
 			break;
 		}
 	}

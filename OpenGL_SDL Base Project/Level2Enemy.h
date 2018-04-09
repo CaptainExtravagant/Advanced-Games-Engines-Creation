@@ -18,7 +18,7 @@ public:
 
 	Box* GetBoundingBox() { return box; }
 	int GetEnemyType() { return type; }
-	void Hit(int incomingDamage, float damageValue);
+	void Hit(int incomingDamage, float damageValue, Level2Player* player);
 	Level2Player* GetTarget() { return target; }
 	void TargetKilled() { target = NULL; targetSet = false; currentState = AI_SEARCHING; }
 

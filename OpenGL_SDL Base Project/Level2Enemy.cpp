@@ -36,10 +36,11 @@ void Level2Enemy::Update(float deltaTime, SDL_Event e)
 	}
 }
 
-void Level2Enemy::Hit(int damageType, float damageValue)
+void Level2Enemy::Hit(int damageType, float damageValue, Level2Player* player)
 {
 	cout << "Enemy Hit" << endl;
-	mTransform.position.z += 1;
+	//mTransform.position.z += 1;
+	mTransform.position -= (player->GetPosition() - mTransform.position).Normalise();
 
 	currentHealth -= damageValue;
 	if (currentHealth <= 0)
