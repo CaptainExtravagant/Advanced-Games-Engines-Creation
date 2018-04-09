@@ -29,7 +29,7 @@ private:
 	void ChangeWeapon(int type);
 
 	int controllerIndex;
-	SDL_GameController* mController;
+	SDL_GameController* mController = NULL;
 	float movement;
 	Sphere* sphere;
 

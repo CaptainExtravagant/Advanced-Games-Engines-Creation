@@ -29,7 +29,7 @@ void Level2Player::Render()
 {
 	glPushMatrix();
 	glTranslatef(fireEnd.x, fireEnd.y, fireEnd.z);
-	glutSolidSphere(2, 5, 5);
+	glutSolidSphere(0.5, 5, 5);
 	glPopMatrix();
 
 	glPushMatrix();
@@ -142,61 +142,64 @@ void Level2Player::Update(float deltaTime, SDL_Event e)
 	
 	//=====
 	//Gamepad Controls
-	stickInput = Vector2D(
-		SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_LEFTX)),
-		SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_LEFTY)));
+	if (mController != NULL)
+	{
+		stickInput = Vector2D(
+			SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_LEFTX)),
+			SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_LEFTY)));
 
-	//Is the magnitude more than the circular deadzone area?
-	if (stickInput.Magnitude() > pow(JOYSTICK_DEAD_ZONE, 2))
-	{
-		//Input amounts are set between -1 and 1
-		xDir = stickInput.x / JOYSTICK_MAX_AXIS;
-		yDir = stickInput.y / JOYSTICK_MAX_AXIS;
-	}
-	else
-	{
-		//If the stick is inside the deadzone then set the input amounts to 0
-		xDir = 0;
-		yDir = 0;
-	}
+		//Is the magnitude more than the circular deadzone area?
+		if (stickInput.Magnitude() > pow(JOYSTICK_DEAD_ZONE, 2))
+		{
+			//Input amounts are set between -1 and 1
+			xDir = stickInput.x / JOYSTICK_MAX_AXIS;
+			yDir = stickInput.y / JOYSTICK_MAX_AXIS;
+		}
+		else
+		{
+			//If the stick is inside the deadzone then set the input amounts to 0
+			xDir = 0;
+			yDir = 0;
+		}
 
-	//Get Stick Angle
-	lookInput = Vector2D(
-		SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_RIGHTX)),
-		SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_RIGHTY))
-	);
+		//Get Stick Angle
+		lookInput = Vector2D(
+			SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_RIGHTX)),
+			SDL_GameControllerGetAxis(mController, SDL_GameControllerAxis(SDL_CONTROLLER_AXIS_RIGHTY))
+		);
 
-	if (lookInput.Magnitude() > pow(JOYSTICK_DEAD_ZONE, 2))
-	{
-		xLook = lookInput.x / JOYSTICK_MAX_AXIS;
-		yLook = lookInput.y / JOYSTICK_MAX_AXIS;
+		if (lookInput.Magnitude() > pow(JOYSTICK_DEAD_ZONE, 2))
+		{
+			xLook = lookInput.x / JOYSTICK_MAX_AXIS;
+			yLook = lookInput.y / JOYSTICK_MAX_AXIS;
 
-		lookAngle = (atan2(-yLook, xLook) * (180 / M_PI)) + 90;
-		fireEnd = mTransform.position + Vector3D(xLook, 0, yLook).Normalise() * weaponRange;
-		FireWeapon(deltaTime);
-	}
-	else
-	{
-		xLook = 0;
-		yLook = 0;
-	}
+			lookAngle = (atan2(-yLook, xLook) * (180 / M_PI)) + 90;
+			fireEnd = mTransform.position + Vector3D(xLook, 0, yLook).Normalise() * weaponRange;
+			FireWeapon(deltaTime);
+		}
+		else
+		{
+			xLook = 0;
+			yLook = 0;
+		}
 
-	//Change Weapon Types
-	if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)))
-	{
-		ChangeWeapon(1);
-	}
-	if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_B)))
-	{
-		ChangeWeapon(2);
-	}
-	if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_X)))
-	{
-		ChangeWeapon(3);
-	}
-	if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_Y)))
-	{
-		ChangeWeapon(4);
+		//Change Weapon Types
+		if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_A)))
+		{
+			ChangeWeapon(1);
+		}
+		if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_B)))
+		{
+			ChangeWeapon(2);
+		}
+		if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_X)))
+		{
+			ChangeWeapon(3);
+		}
+		if (SDL_GameControllerGetButton(mController, SDL_GameControllerButton(SDL_CONTROLLER_BUTTON_Y)))
+		{
+			ChangeWeapon(4);
+		}
 	}
 	//=====
 
@@ -221,16 +224,6 @@ void Level2Player::FireWeapon(float deltaTime)
 			if (Collision::BoxLineCollision(mManager->GetEnemies()[i]->GetBoundingBox(), mTransform.position, fireEnd))
 			{
 				mManager->GetEnemies()[i]->Hit(activeWeapon, 20.0f);
-			}
-
-			if (debug)
-			{
-				glLineWidth(20);
-				glColor3f(1.0, 0.0, 0.0);
-				glBegin(GL_LINES);
-				glVertex3f(mTransform.position.x, mTransform.position.y, mTransform.position.z);
-				glVertex3f(fireEnd.x, fireEnd.y, fireEnd.z);
-				glEnd();
 			}
 		}
 		fireReady = false;
@@ -259,4 +252,5 @@ void Level2Player::Hit()
 {
 	//Kill player
 	cout << "Player Hit" << endl;
+	mManager->PlayerKilled(this);
 }

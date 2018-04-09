@@ -74,15 +74,16 @@ bool Level2Enemy::FindTarget()
 
 bool Level2Enemy::MoveToTarget(float deltaTime)
 {
-	if (targetSet)
+	if (target != NULL)
 	{
-		mTransform.AddPosition((mTransform.position - target->GetPosition()).Normalise() * deltaTime);
+		mTransform.AddPosition((target->GetPosition() - mTransform.position).Normalise() * deltaTime);
 		if ((mTransform.position - target->GetPosition()).Magnitude() <= attackRange)
 		{
 			if (Collision::SphereBoxCollision(target->GetBoundingSphere(), box))
 			{
 				AttackTarget();
 				targetSet = false;
+				target = NULL;
 				return true;
 			}
 		}

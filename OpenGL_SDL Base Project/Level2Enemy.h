@@ -19,10 +19,12 @@ public:
 	Box* GetBoundingBox() { return box; }
 	int GetEnemyType() { return type; }
 	void Hit(int incomingDamage, float damageValue);
+	Level2Player* GetTarget() { return target; }
+	void TargetKilled() { target = NULL; targetSet = false; currentState = AI_SEARCHING; }
 
 private:
 	CharacterManager* mManager;
-	Level2Player* target;
+	Level2Player* target = NULL;
 
 	float distanceToTarget = 0;
 	Vector3D targetPosition;

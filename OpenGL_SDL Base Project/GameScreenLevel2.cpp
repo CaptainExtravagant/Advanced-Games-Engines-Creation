@@ -9,6 +9,9 @@ GameScreenLevel2::~GameScreenLevel2()
 {
 	delete mCamera;
 	mCamera = NULL;
+
+	delete mCharacterManager;
+	mCharacterManager = NULL;
 }
 
 void GameScreenLevel2::Render()
@@ -32,16 +35,23 @@ void GameScreenLevel2::Render()
 
 	mCharacterManager->Render();
 
-	mCamera->Render(Vector3D(0, 0, 0));
+	HUD_Timer->PrintText();
+	HUD_Kills->PrintText();
+
+	if(mCamera != NULL)
+		mCamera->Render(Vector3D(0, 0, 0));
 }
 
 void GameScreenLevel2::Update(float deltaTime, SDL_Event e)
 {
 	mCurrentTime += deltaTime;
 
+	HUD_Timer->UpdateText("Time Survived: " + to_string((int)mCurrentTime) + "s");
+
 	mCharacterManager->Update(deltaTime, e);
 
-	mCamera->Update(deltaTime, e);
+	if (mCamera != NULL)
+		mCamera->Update(deltaTime, e);
 }
 
 bool GameScreenLevel2::SetUpLevel()
@@ -78,7 +88,22 @@ bool GameScreenLevel2::SetUpLevel()
 	//Directional Light
 	glEnable(GL_LIGHT0);
 	
-	mCharacterManager = new CharacterManager();
+	mCharacterManager = new CharacterManager(this);
+	HUD_Timer = new Text2D("Time Survived: ", 10, 95);
+	HUD_Kills = new Text2D("Kills: 0", 90, 95);
 
 	return true;
+}
+
+void GameScreenLevel2::AddKill()
+{
+	totalKills++;
+
+	HUD_Kills->UpdateText("Kills: " + to_string(totalKills));
+}
+
+void GameScreenLevel2::LostGame()
+{
+	mScreenManager->ChangeScreen(SCREEN_MENU);
+	return;
 }

@@ -18,9 +18,17 @@ public:
 	void		Render();
 	void		Update(float deltaTime, SDL_Event e);
 
+	void AddKill();
+	void LostGame();
+
 	//--------------------------------------------------------------------------------------------------
 private:
 	Camera* mCamera;
+
+	Text2D* HUD_Timer;
+	Text2D* HUD_Kills;
+
+	int totalKills = 0;
 
 	float mCurrentTime = 0;
 
