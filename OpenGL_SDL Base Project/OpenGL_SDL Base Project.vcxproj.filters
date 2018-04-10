@@ -100,6 +100,9 @@
     <ClInclude Include="CharacterManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameScreenLevel2Gameover.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameScreen.cpp">
@@ -172,6 +175,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CharacterManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenLevel2Gameover.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

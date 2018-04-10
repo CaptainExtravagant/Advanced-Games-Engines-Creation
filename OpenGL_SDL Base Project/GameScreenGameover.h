@@ -23,7 +23,6 @@ private:
 	Text2D* mGameoverText;
 	Camera* mCamera;
 
-	void SetLight();
 	void SetMaterial();
 
 	float timer = 5.0f;

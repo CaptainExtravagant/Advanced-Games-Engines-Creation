@@ -3,6 +3,7 @@
 
 #include "Level2Enemy.h"
 #include "Level2Player.h"
+#include "SoundEffect.h"
 
 class GameScreenLevel2;
 
@@ -25,6 +26,9 @@ private:
 
 	vector<Level2Enemy*> lEnemies;
 	vector<Level2Player*> lPlayers;
+
+	SoundEffect* mPlayerSound;
+	SoundEffect* mZombieSound;
 
 	GameScreenLevel2* mCurrentLevel;
 

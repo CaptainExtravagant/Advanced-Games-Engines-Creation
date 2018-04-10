@@ -15,6 +15,8 @@ Level2Player::Level2Player(int playerIndex, Vector3D startPosition, string model
 		mController = SDL_GameControllerOpen(controllerIndex);
 	}
 
+	SetScale(Vector3D(10, 10, 10));
+
 	sphere = new Sphere(mTransform.position, 1.7f, this);
 	components.push_back(sphere);
 }
@@ -26,7 +28,7 @@ Level2Player::~Level2Player()
 }
 
 void Level2Player::Render()
-{
+{	
 	glPushMatrix();
 	glTranslatef(fireEnd.x, fireEnd.y, fireEnd.z);
 	glutSolidSphere(0.5, 5, 5);
@@ -36,8 +38,6 @@ void Level2Player::Render()
 
 
 	glColor3f(1.0f, 0.0f, 0.0f);
-
-
 	glTranslatef(mTransform.position.x, mTransform.position.y, mTransform.position.z);
 
 	glRotatef(mTransform.rotation.y, 0.0f, 1.0f, 0.0f);
@@ -53,21 +53,12 @@ void Level2Player::Render()
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	//RenderModel();
-
-	glutSolidSphere(2, 5, 5);
-
+	RenderModel();
 
 	for (unsigned int i = 0; i < children.size(); i++)
 	{
 		children[i]->Render();
 	}
-
-	glPushMatrix();
-	glColor3f(1.0, 1.0, 1.0);
-	glTranslatef(0, 0, 2);
-	glutSolidSphere(0.5f, 5, 5);
-	glPopMatrix();
 
 	glPopMatrix();
 }
@@ -223,7 +214,7 @@ void Level2Player::FireWeapon(float deltaTime)
 		{
 			if (Collision::BoxLineCollision(mManager->GetEnemies()[i]->GetBoundingBox(), mTransform.position, fireEnd))
 			{
-				mManager->GetEnemies()[i]->Hit(activeWeapon, 20.0f);
+				mManager->GetEnemies()[i]->Hit(activeWeapon, 15, this);
 			}
 		}
 		fireReady = false;

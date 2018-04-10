@@ -4,7 +4,7 @@
 CharacterManager::CharacterManager(GameScreenLevel2* level)
 {
 	mCurrentLevel = level;
-
+	
 	SpawnPlayers();
 	SpawnEnemies();
 }
@@ -58,16 +58,16 @@ void CharacterManager::SpawnEnemies()
 		switch (RandomFloatInRange(0, 3))
 		{
 		case 0:
-			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, 13), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, 13), "Zombie.obj", "Zombie.raw", 1, this));
 			break;
 		case 1:
-			lEnemies.push_back(new Level2Enemy(Vector3D(18, 2, RandomFloatInRange(-5, 5)), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(18, 2, RandomFloatInRange(-5, 5)), "Zombie.obj", "Zombie.raw", 1, this));
 			break;
 		case 2:
-			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, -13), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(RandomFloatInRange(-5, 5), 2, -13), "Zombie.obj", "Zombie.raw", 1, this));
 			break;
 		case 3:
-			lEnemies.push_back(new Level2Enemy(Vector3D(-18, 2, RandomFloatInRange(-5, 5)), "Ball.obj", "OrangeBall.raw", 1, this));
+			lEnemies.push_back(new Level2Enemy(Vector3D(-18, 2, RandomFloatInRange(-5, 5)), "Zombie.obj", "Zombie.raw", 1, this));
 			break;
 		}
 	}
@@ -77,7 +77,7 @@ void CharacterManager::SpawnPlayers()
 {
 	for (int i = 0; i < 2; i++)
 	{
-		lPlayers.push_back(new Level2Player(i, Vector3D(10*i, 2, 0), "Ball.obj", "GreenBall.raw", this));
+		lPlayers.push_back(new Level2Player(i, Vector3D(10*i, 2, 0), "Soldier.obj", "Soldier.raw", this));
 	}
 }
 

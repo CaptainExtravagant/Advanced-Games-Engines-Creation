@@ -28,11 +28,18 @@ private:
 	Text2D* HUD_Timer;
 	Text2D* HUD_Kills;
 
+	void SetLight();
+	void SetMaterial();
+
 	int totalKills = 0;
+
+	bool lostGame = false;
 
 	float mCurrentTime = 0;
 
 	CharacterManager* mCharacterManager;
+
+	int groundTextureID;
 };
 
 #endif

@@ -1,3 +1,4 @@
 ﻿  GameScreenLevel2.cpp
-c:\users\r016339g\documents\github\advanced-games-engines-creation\opengl_sdl base project\commons.h(370): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  OpenGL_SDL Base Project.vcxproj -> C:\Users\r016339g\Documents\GitHub\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.exe
+c:\users\rippo\documents\uni work\year 2\engine creation\advanced-games-engines-creation\opengl_sdl base project\commons.h(371): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.exe
+  OpenGL_SDL Base Project.vcxproj -> C:\Users\rippo\Documents\Uni Work\Year 2\Engine Creation\Advanced-Games-Engines-Creation\Debug\OpenGL_SDL Base Project.pdb (Partial PDB)

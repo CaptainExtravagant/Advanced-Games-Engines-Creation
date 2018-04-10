@@ -89,6 +89,7 @@
     <ClInclude Include="GameScreenIntro.h" />
     <ClInclude Include="GameScreenLevel1.h" />
     <ClInclude Include="GameScreenLevel2.h" />
+    <ClInclude Include="GameScreenLevel2Gameover.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="GameScreenMenu.h" />
     <ClInclude Include="Level2Enemy.h" />
@@ -114,6 +115,7 @@
     <ClCompile Include="GameScreenIntro.cpp" />
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenLevel2.cpp" />
+    <ClCompile Include="GameScreenLevel2Gameover.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="GameScreenMenu.cpp" />
     <ClCompile Include="Level2Enemy.cpp" />

@@ -11,6 +11,8 @@ Level2Enemy::Level2Enemy(Vector3D startPosition, string modelName, string textur
 	box = new Box(mTransform.position, 2, 2, 2, this);
 	components.push_back(box);
 
+	SetScale(Vector3D(5, 5, 5));
+
 	currentState = AI_SEARCHING;
 }
 

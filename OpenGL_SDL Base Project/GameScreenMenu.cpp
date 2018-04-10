@@ -36,9 +36,9 @@ bool GameScreenMenu::SetUpLevel()
 	glEnable(GL_LIGHT0);
 
 	level1Text = "Use WASD to move around. Avoid the falling balls. Reach the other side. 4 hits and you're out.";
-	level2Text = "God knows what'll be here.";
+	level2Text = "Use a gamepad to survive against waves of enemies with a friend. Left stick to move, right stick to aim and fire.";
 
-	mTutorialText = new Text2D(level1Text, 20, 40);
+	mTutorialText = new Text2D(level1Text, 10, 40);
 	mLevel1Button = new Button(Vector2D(45, 60), "Start Level 1");
 	mLevel2Button = new Button(Vector2D(45, 55), "Start Level 2");
 
