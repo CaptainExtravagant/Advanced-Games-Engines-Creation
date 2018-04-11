@@ -5,7 +5,7 @@
 GameObject::GameObject(Vector3D startPosition, string modelFileName, string textureFileName)
 {
 	//Start position
-	mTransform = Transform(startPosition, Vector3D(270, 0, 0), Vector3D(1, 1, 1));
+	mTransform = Transform(startPosition, Vector3D(0, 0, 0), Vector3D(1, 1, 1));
 	mQuatRotation = Quaternion();
 
 	//Load mesh
@@ -97,7 +97,7 @@ void GameObject::LoadModel()
 void GameObject::LoadTexture()
 {
 	texture = new Texture2D();
-	texture->Load(textureName, 512, 512);
+	texture->Load(textureName, 1024, 1024);
 }
 
 void GameObject::SetPosition(Vector3D newPosition)

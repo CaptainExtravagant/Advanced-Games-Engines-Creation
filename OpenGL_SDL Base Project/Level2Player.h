@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Collision.h"
 #include <math.h>
+#include "SoundEffect.h"
 
 class CharacterManager;
 class Level2Enemy;
@@ -47,6 +48,8 @@ private:
 	Vector3D fireEnd;
 	float fireTimer = 0.2f;
 	bool fireReady = true;
+	SoundEffect* mGunshotSound;
+	SoundEffect* mScreamSound;
 
 	bool debug = true;
 };

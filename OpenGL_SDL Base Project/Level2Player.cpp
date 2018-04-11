@@ -15,7 +15,14 @@ Level2Player::Level2Player(int playerIndex, Vector3D startPosition, string model
 		mController = SDL_GameControllerOpen(controllerIndex);
 	}
 
+	mGunshotSound = new SoundEffect();
+	mGunshotSound->LoadClip("Gunshot.wav");
+
+	mScreamSound = new SoundEffect();
+	mScreamSound->LoadClip("Scream.wav");
+
 	SetScale(Vector3D(10, 10, 10));
+	SetRotation(Vector3D(270, 0, 0));
 
 	sphere = new Sphere(mTransform.position, 1.7f, this);
 	components.push_back(sphere);
@@ -218,6 +225,7 @@ void Level2Player::FireWeapon(float deltaTime)
 			}
 		}
 		fireReady = false;
+		mGunshotSound->Play();
 	}
 	else
 	{
@@ -242,6 +250,8 @@ void Level2Player::ChangeWeapon(int type)
 void Level2Player::Hit()
 {
 	//Kill player
+	mScreamSound->Play();
+
 	cout << "Player Hit" << endl;
 	mManager->PlayerKilled(this);
 }

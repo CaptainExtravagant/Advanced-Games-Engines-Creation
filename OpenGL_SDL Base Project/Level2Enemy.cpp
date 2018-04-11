@@ -12,6 +12,16 @@ Level2Enemy::Level2Enemy(Vector3D startPosition, string modelName, string textur
 	components.push_back(box);
 
 	SetScale(Vector3D(5, 5, 5));
+	SetRotation(Vector3D(270, 0, 0));
+
+	mHit = new SoundEffect();
+	mHit->LoadClip("ZombieHit.wav");
+
+	mDeath = new SoundEffect();
+	mDeath->LoadClip("ZombieDeath.wav");
+
+	mMoan = new SoundEffect();
+	mMoan->LoadClip("ZombieMoan.wav");
 
 	currentState = AI_SEARCHING;
 }
@@ -47,9 +57,12 @@ void Level2Enemy::Hit(int damageType, float damageValue, Level2Player* player)
 	currentHealth -= damageValue;
 	if (currentHealth <= 0)
 	{
+		mDeath->Play();
 		cout << "Enemy Killed" << endl;
 		mManager->EnemyKilled(this);
 	}
+	else
+		mHit->Play();
 }
 
 bool Level2Enemy::FindTarget()
@@ -71,6 +84,8 @@ bool Level2Enemy::FindTarget()
 			distanceToTarget = (mTransform.position - targetPosition).Magnitude();
 		}
 	}
+
+	mMoan->Play();
 
 	return targetSet;
 }
@@ -98,4 +113,5 @@ bool Level2Enemy::MoveToTarget(float deltaTime)
 void Level2Enemy::AttackTarget()
 {
 	target->Hit();
+	mMoan->Play();
 }

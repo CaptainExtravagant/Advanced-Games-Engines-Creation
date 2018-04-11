@@ -1,170 +1,292 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Camera">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAQCAgAAAQAAAAAAQAAAIAAABAAAAEAAABAAAgAAgAA=</HashCode>
+      <HashCode>AQQCAgAAAQAABAAAQAAAIAAQBAAAAkAAABAAAgAAgAA=</HashCode>
       <FileName>Camera.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameObject">
-    <Position X="3" Y="0.5" Width="1.5" />
+    <Position X="14" Y="9.5" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>CBQEAABgACCAAAAAAAAIAAAAAAAAAggAIFAAAgIAAAA=</HashCode>
+      <HashCode>CBQEAABgACCAEAREQAKIBAAAAAAAQggAIFAAAgYAAAA=</HashCode>
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameScreen">
-    <Position X="8.25" Y="3" Width="1.5" />
+    <Position X="35" Y="8.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAIAAAAAAAAAIAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAQAIAAAIAAAAAAAAAIAAAAAAAAAAAAEARAAAAAAAAA=</HashCode>
       <FileName>GameScreen.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameScreenLevel1">
-    <Position X="8.25" Y="5" Width="1.75" />
+    <Position X="28.5" Y="12.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAQIKIQAAAAAAAABCAAAAEAAAAAAAAIEABAAABAAAAA=</HashCode>
+      <HashCode>CAQIKAQGAAAAAAAJCAACBQAAQBAAGAIEABAAABAgAAA=</HashCode>
       <FileName>GameScreenLevel1.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameScreenManager">
-    <Position X="8.25" Y="0.5" Width="2" />
+    <Position X="3.75" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAQABAAAAAAAAAAABAAAAAAAAAAAAAAAABAQAAAAAAQ=</HashCode>
+      <HashCode>AAQABAAAAAAAAAAABACAgAAAAAAAAAAAABAQAAAAAAQ=</HashCode>
       <FileName>GameScreenManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OBJLoader">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Position X="12.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>OBJLoader.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RubiksCubeBlock">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+  <Class Name="BallSpawner">
+    <Position X="18" Y="5.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AQQAAIAAAAAAAQAAIAAAQAAAACEAAghAABAAAAACgAA=</HashCode>
-      <FileName>RubiksCubeBlock.h</FileName>
+      <HashCode>AAQAAAAABAAAAgAAAAIoAAAAAAAAAAAAABAAAIAAEAA=</HashCode>
+      <FileName>BallSpawner.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RubiksCubeBlockCenter">
-    <Position X="0.75" Y="7.75" Width="2" />
+  <Class Name="BaseComponent">
+    <Position X="30" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAgAAEAAggAAAAAAAAAAAA=</HashCode>
-      <FileName>RubiksCubeBlockCenter.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>BaseComponent.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RubiksCubeBlockCorner">
-    <Position X="3" Y="7.75" Width="2" />
+  <Class Name="Button">
+    <Position X="22" Y="0.5" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAggAAEAAAAAgCAA=</HashCode>
-      <FileName>RubiksCubeBlockCorner.h</FileName>
+      <HashCode>CMAEAAAAiAgBACAAARAAIAAAAAAAQgAAABAAAIEAAAA=</HashCode>
+      <FileName>Button.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RubiksCubeBlockEdge">
-    <Position X="5.25" Y="7.75" Width="2" />
+  <Class Name="CharacterManager">
+    <Position X="18.5" Y="0.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAggAIEAAAAAgAAA=</HashCode>
-      <FileName>RubiksCubeBlockEdge.h</FileName>
+      <HashCode>AAQgADQABAAACAAgAABAAAIKAAAAAAAAADgAAAAAASA=</HashCode>
+      <FileName>CharacterManager.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RubiksCubeCore">
-    <Position X="0.75" Y="0.5" Width="1.5" />
+  <Class Name="Sphere">
+    <Position X="29.5" Y="3.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>hCRgAIDAQAAAAkAAAAKAQAAAEDAAAIAAAJAAAAAAAQA=</HashCode>
-      <FileName>RubiksCubeCore.h</FileName>
+      <HashCode>AAQAAAAQDAAAAAABAAWAAABAAAAgACAAAAgAAAAAAIQ=</HashCode>
+      <FileName>Collision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Box">
+    <Position X="33.5" Y="3.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAQBAAAAAQBQAGAAABAAAIAACAAAAgAIEAAAIQ=</HashCode>
+      <FileName>Collision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collision">
+    <Position X="13" Y="4.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAAAAAAAAAAAAAAAAAAAQAQAAAIAAAAAAA=</HashCode>
+      <FileName>Collision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dodgeball">
+    <Position X="6.25" Y="17.75" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAAAAAABAAAAAAAAAAAEACACAAAAABAAAAEIAA=</HashCode>
+      <FileName>Dodgeball.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenGameover">
+    <Position X="32.25" Y="12.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>ABQIAAQAAAAAAAABAAAAAAAAAAAAAAAEABAAAAAAwAA=</HashCode>
+      <FileName>GameScreenGameover.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenHighscores">
+    <Position X="44.5" Y="12.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AQQAAEQAAAAAAAABAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>GameScreenHighscores.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenIntro">
+    <Position X="37" Y="12.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAEAQAAAAAAAABEAAAAAAAAAAAAgAAABAAAAAAAAA=</HashCode>
+      <FileName>GameScreenIntro.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenLevel2">
+    <Position X="28.5" Y="18.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAUIIAQCAAAAAAABQAAAAACAABAAQAAEABAAEAARIAA=</HashCode>
+      <FileName>GameScreenLevel2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenLevel2Gameover">
+    <Position X="32.25" Y="18.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAQAAAAAAAADAAACAAAAAAAAAAEEABAAAAAARAA=</HashCode>
+      <FileName>GameScreenLevel2Gameover.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameScreenMenu">
+    <Position X="40.75" Y="12.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIIAQAAAAAAAABAAAAAgABAAAAAAAEABIAAAADAAI=</HashCode>
+      <FileName>GameScreenMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level2Enemy">
+    <Position X="20.5" Y="17.75" Width="7.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Level2Enemy::AI_STATE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Level2Enemy.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAQAFAFIAAIEAAAAJAYAEgBgAAAFDAAAAAAAAQAAABA=</HashCode>
+      <FileName>Level2Enemy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level2Player">
+    <Position X="12.75" Y="17.75" Width="7.5" />
+    <TypeIdentifier>
+      <HashCode>ASQCACkQAAAWBAAAACaAAAAAAACBQAABABIAQQCAAAA=</HashCode>
+      <FileName>Level2Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerCharacter">
+    <Position X="0.5" Y="17.75" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>ASQACAAQAAAGBIAAAAAABBAAAASAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerCharacter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RigidBody">
+    <Position X="26.25" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAEEAAAAAAAAAAAEAAAQAAAQAAEAACAA=</HashCode>
+      <FileName>RigidBody.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundEffect">
+    <Position X="15.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAACIAAAAAAAAAAAAAAEAAAAogAAAAAAAAA=</HashCode>
+      <FileName>SoundEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Text2D">
+    <Position X="21.75" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAgAACAAAAACIAAAAAAAAAIIAQAAgAAAAAA=</HashCode>
+      <FileName>Text2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture2D">
+    <Position X="14.75" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACAAAAAAAAAgABAIBAAAAAAAAAAAEAEACA=</HashCode>
+      <FileName>Texture2D.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Rect2D">
-    <Position X="10.5" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="8.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAQAQAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="Vector2D">
-    <Position X="14" Y="0.5" Width="2.25" />
+    <Position X="7.25" Y="0.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAEAAAAAAAAQAAAAAAAAAAAABgAgEAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="Vector3D">
-    <Position X="17" Y="0.5" Width="2.25" />
+    <Position X="6" Y="4.5" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAACAAAAAAAAQAAAAAAAAAAAABgA0EABAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="Transform">
-    <Position X="12.25" Y="4.25" Width="2" />
+    <Position X="0.5" Y="5.5" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAACAIAQCAAAEAAAAAAAAAAAAQAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="Quaternion">
-    <Position X="14.5" Y="4" Width="2.25" />
+    <Position X="5.25" Y="9.5" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAhwAwEQAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="lighting">
-    <Position X="12.25" Y="0.5" Width="1.5" />
+    <Position X="14" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="material">
-    <Position X="12.25" Y="2.25" Width="1.5" />
+    <Position X="14" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAABAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="TexCoord">
-    <Position X="10.5" Y="7.5" Width="1.5" />
+    <Position X="10" Y="4.5" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="Triangle">
-    <Position X="12.25" Y="6.75" Width="1.5" />
+    <Position X="11.5" Y="4.5" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAQAAAAAAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="__unnamed_struct_0003_1">
-    <Position X="12.25" Y="9" Width="1.5" />
+  <Struct Name="__unnamed_struct_000c_1">
+    <Position X="11.75" Y="6.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAQAACAgAAEAEAgAABAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAIAAAAAAAABAAAQAACAgAAEAEAgAABAAAAAAAAgI=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Typedef Name="obj_type" Collapsed="true">
-    <Position X="10.5" Y="9" Width="1.5" />
+    <Position X="10" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="obj_type_ptr" Collapsed="true">
-    <Position X="10.5" Y="9.75" Width="1.5" />
+    <Position X="10" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Enum Name="SCREENS">
-    <Position X="8.25" Y="9" Width="1.5" />
+    <Position X="11.75" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAEAAAEAAAAAIAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAACQAAAEAAAEAAAAAIAQAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Commons.h</FileName>
     </TypeIdentifier>
   </Enum>

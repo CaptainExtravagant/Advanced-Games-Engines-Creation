@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include "Collision.h"
 #include <math.h>
+#include "SoundEffect.h"
 
 class CharacterManager;
 class Level2Player;
@@ -49,6 +50,10 @@ private:
 
 	float lookAngle = 0;
 	float attackRange = 2.0f;
+
+	SoundEffect* mMoan;
+	SoundEffect* mHit;
+	SoundEffect* mDeath;
 };
 
 #endif
